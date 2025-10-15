@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" data-lang-key="metaDescription">
     <title>PT Digital Sandi Informasi - Merancang Masa Depan Digital Anda</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="public/images/dsi-logo.png">
     <style>
         html {
             scroll-behavior: smooth;
         }
-
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #000;
@@ -52,11 +52,9 @@
             color: white;
             transition: background-color 0.3s ease;
         }
-
         .btn-primary:hover {
             background-color: #53aeff;
         }
-
         .btn-primary:disabled {
             background-color: #4a5568;
             cursor: not-allowed;
@@ -68,13 +66,11 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: background-color 0.3s ease;
         }
-
         .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+             background-color: rgba(255, 255, 255, 0.2);
         }
 
-        .advantage-card:hover,
-        .service-card:hover {
+        .advantage-card:hover, .service-card:hover {
             transform: translateY(-8px);
             border-color: rgba(41, 151, 255, 0.7);
             box-shadow: 0 0 25px rgba(41, 151, 255, 0.2);
@@ -90,53 +86,25 @@
             opacity: 1;
             transform: translateY(0);
         }
-
+        
         .nav-active {
             color: #2997FF !important;
         }
-
+        
         .lang-switcher button {
             transition: color 0.2s ease;
         }
-
         .lang-switcher .lang-active {
             color: #2997FF;
             font-weight: 600;
         }
-
-        .threat-report-container {
-            min-height: 200px;
-        }
-
-        .threat-report-container h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #2997FF;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .threat-report-container h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #fff;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .threat-report-container ul {
-            list-style-type: disc;
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .threat-report-container li {
-            margin-bottom: 0.5rem;
-        }
-
-        .threat-report-container p {
-            margin-bottom: 1rem;
-        }
+        
+        .ai-response-container { min-height: 200px; }
+        .ai-response-container h3 { font-size: 1.25rem; font-weight: 600; color: #2997FF; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .ai-response-container h4 { font-size: 1.1rem; font-weight: 600; color: #fff; margin-top: 1rem; margin-bottom: 0.5rem; }
+        .ai-response-container ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .ai-response-container li { margin-bottom: 0.5rem; }
+        .ai-response-container p { margin-bottom: 1rem; }
 
         .loader {
             border: 4px solid rgba(255, 255, 255, 0.2);
@@ -146,15 +114,24 @@
             height: 40px;
             animation: spin 1s linear infinite;
         }
-
         @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
+            to { transform: rotate(360deg); }
+        }
+
+        .ai-warning {
+            background-color: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #FFC107;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            color: #FFD54F;
+        }
+        .ai-warning strong {
+            color: #FFC107;
         }
     </style>
 </head>
-
 <body class="antialiased">
 
     <canvas id="particle-canvas"></canvas>
@@ -162,27 +139,19 @@
     <!-- Header & Navigation -->
     <header class="glass-nav fixed top-0 left-0 right-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-semibold text-white flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-2 text-gray-400" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                DSI
+            <a href="#" class="text-2xl font-semibold text-white flex items-center gap-x-2">
+                <img src="public/images/dsi-logo.png" class="h-auto max-h-10" alt="dsi-logo">
+                <div class="leading-tight">
+                    <span>Digital Sandi Informasi</span>
+                    <span class="block text-sm font-light italic text-gray-300">Mobile Lifestyle</span>
+                </div>
             </a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#philosophy" class="text-gray-300 hover:text-white transition-colors text-md"
-                    data-lang-key="navPhilosophy"></a>
-                <a href="#advantage" class="text-gray-300 hover:text-white transition-colors text-md"
-                    data-lang-key="navAdvantage"></a>
-                <a href="#services" class="text-gray-300 hover:text-white transition-colors text-md"
-                    data-lang-key="navServices"></a>
-                <a href="#process" class="text-gray-300 hover:text-white transition-colors text-md"
-                    data-lang-key="navProcess"></a>
-                <a href="#threat-analysis" class="text-gray-300 hover:text-white transition-colors text-md"
-                    data-lang-key="navAiAnalysis"></a>
-                <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-md"
-                    data-lang-key="navContact"></a>
+                <a href="#philosophy" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navPhilosophy"></a>
+                <a href="#services" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navServices"></a>
+                <a href="#process" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navProcess"></a>
+                <a href="#ai-strategy" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navAiStrategy"></a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navContact"></a>
                 <div class="lang-switcher flex items-center space-x-2 text-gray-400">
                     <button id="lang-id" class="lang-active">ID</button>
                     <span>|</span>
@@ -191,35 +160,18 @@
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </nav>
         <div class="hidden md:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#philosophy"
-                    class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                    data-lang-key="navPhilosophy"></a>
-                <a href="#advantage"
-                    class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                    data-lang-key="navAdvantage"></a>
-                <a href="#services"
-                    class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                    data-lang-key="navServices"></a>
-                <a href="#process"
-                    class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                    data-lang-key="navProcess"></a>
-                <a href="#threat-analysis"
-                    class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                    data-lang-key="navAiAnalysis"></a>
-                <a href="#contact"
-                    class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                    data-lang-key="navContact"></a>
-                <div class="lang-switcher flex items-center space-x-4 text-gray-400 px-3 pt-4">
+                <a href="#philosophy" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navPhilosophy"></a>
+                <a href="#services" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navServices"></a>
+                <a href="#process" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navProcess"></a>
+                <a href="#ai-strategy" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navAiStrategy"></a>
+                <a href="#contact" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navContact"></a>
+                 <div class="lang-switcher flex items-center space-x-4 text-gray-400 px-3 pt-4">
                     <button id="lang-id-mobile" class="lang-active">Indonesia</button>
                     <span class="text-gray-600">|</span>
                     <button id="lang-en-mobile">English</button>
@@ -233,18 +185,11 @@
         <section id="hero" class="min-h-screen flex items-center justify-center relative pt-20">
             <div class="container mx-auto px-6 text-center">
                 <div class="max-w-4xl mx-auto">
-                    <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6 tracking-tight"
-                        data-lang-key="heroTitle"></h1>
-                    <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10" data-lang-key="heroSubtitle">
-                    </p>
-                    <div
-                        class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#contact"
-                            class="btn-primary font-semibold py-3 px-8 rounded-full text-lg w-full sm:w-auto"
-                            data-lang-key="heroBtnPrimary"></a>
-                        <a href="#advantage"
-                            class="btn-secondary font-semibold py-3 px-8 rounded-full text-lg w-full sm:w-auto"
-                            data-lang-key="heroBtnSecondary"></a>
+                    <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6 tracking-tight" data-lang-key="heroTitle"></h1>
+                    <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10" data-lang-key="heroSubtitle"></p>
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="btn-primary font-semibold py-3 px-8 rounded-full text-lg w-full sm:w-auto" data-lang-key="heroBtnPrimary"></a>
+                         <a href="#services" class="btn-secondary font-semibold py-3 px-8 rounded-full text-lg w-full sm:w-auto" data-lang-key="heroBtnSecondary"></a>
                     </div>
                 </div>
             </div>
@@ -253,101 +198,56 @@
         <!-- Philosophy Section -->
         <section id="philosophy" class="py-24 md:py-36 fade-in-section">
             <div class="container mx-auto px-6">
-                <div class="text-center max-w-4xl mx-auto">
-                    <h2 class="text-sm font-semibold uppercase text-blue-500 tracking-widest"
-                        data-lang-key="philosophyTag"></h2>
+                 <div class="text-center max-w-4xl mx-auto">
+                    <h2 class="text-sm font-semibold uppercase text-blue-500 tracking-widest" data-lang-key="philosophyTag"></h2>
                     <p class="text-4xl md:text-5xl font-bold text-white mt-4" data-lang-key="philosophyTitle"></p>
                     <p class="text-lg text-gray-400 mt-6 max-w-3xl mx-auto" data-lang-key="philosophyBody"></p>
                 </div>
             </div>
         </section>
-
-        <!-- DSI Advantage Section -->
-        <section id="advantage" class="py-24 md:py-36 fade-in-section">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-20">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white" data-lang-key="advantageTitle"></h2>
-                    <p class="text-lg text-gray-400 mt-4" data-lang-key="advantageSubtitle"></p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                    <div class="advantage-card glass-card p-8 rounded-3xl flex items-start space-x-6">
-                        <div class="flex-shrink-0">
-                            <div class="p-3 bg-gray-800/50 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg"
-                                    class="h-7 w-7 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg></div>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="adv1Title"></h3>
-                            <p class="text-gray-400" data-lang-key="adv1Body"></p>
-                        </div>
-                    </div>
-                    <div class="advantage-card glass-card p-8 rounded-3xl flex items-start space-x-6">
-                        <div class="flex-shrink-0">
-                            <div class="p-3 bg-gray-800/50 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg"
-                                    class="h-7 w-7 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg></div>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="adv2Title"></h3>
-                            <p class="text-gray-400" data-lang-key="adv2Body"></p>
-                        </div>
-                    </div>
-                    <div class="advantage-card glass-card p-8 rounded-3xl flex items-start space-x-6">
-                        <div class="flex-shrink-0">
-                            <div class="p-3 bg-gray-800/50 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg"
-                                    class="h-7 w-7 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                                </svg></div>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="adv3Title"></h3>
-                            <p class="text-gray-400" data-lang-key="adv3Body"></p>
-                        </div>
-                    </div>
-                    <div class="advantage-card glass-card p-8 rounded-3xl flex items-start space-x-6">
-                        <div class="flex-shrink-0">
-                            <div class="p-3 bg-gray-800/50 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg"
-                                    class="h-7 w-7 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                    stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                                </svg></div>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="adv4Title"></h3>
-                            <p class="text-gray-400" data-lang-key="adv4Body"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        
         <!-- Services Section -->
         <section id="services" class="py-24 md:py-36 bg-black/20 fade-in-section">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-20">
                     <h2 class="text-4xl md:text-5xl font-bold text-white" data-lang-key="servicesTitle"></h2>
-                    <p class="text-lg text-gray-400 mt-4" data-lang-key="servicesSubtitle"></p>
+                    <p class="text-lg text-gray-400 mt-4 max-w-3xl mx-auto" data-lang-key="servicesSubtitle"></p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="service-card glass-card p-8 rounded-3xl">
-                        <h3 class="text-2xl font-semibold mb-3 text-blue-500" data-lang-key="service1Title"></h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                    <!-- Service 1 -->
+                    <div class="service-card glass-card p-8 rounded-3xl flex flex-col items-center text-center">
+                        <div class="p-4 bg-gray-800/50 rounded-xl mb-6 inline-block">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" role="img" aria-labelledby="service1TitleSVG">
+                                <title id="service1TitleSVG" data-lang-key="service1Title"></title>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.5 8.5a.5.5 0 100-1 .5.5 0 000 1zM18 12h-2m0 0a2 2 0 10-4 0 2 2 0 004 0zm-2 4h.01" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3 text-white" data-lang-key="service1Title"></h3>
                         <p class="text-gray-300" data-lang-key="service1Body"></p>
                     </div>
-                    <div class="service-card glass-card p-8 rounded-3xl">
-                        <h3 class="text-2xl font-semibold mb-3 text-blue-500" data-lang-key="service2Title"></h3>
+                    <!-- Service 2 -->
+                    <div class="service-card glass-card p-8 rounded-3xl flex flex-col items-center text-center">
+                        <div class="p-4 bg-gray-800/50 rounded-xl mb-6 inline-block">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" role="img" aria-labelledby="service2TitleSVG">
+                                <title id="service2TitleSVG" data-lang-key="service2Title"></title>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.793V21H3V12.793m18 0a9 9 0 00-18 0m18 0c0 4.97-4.03 9-9 9s-9-4.03-9-9m18 0h-3.32a6.372 6.372 0 00-1.08-3.32M3 12.793h3.32a6.372 6.372 0 011.08-3.32M12 3v6.793" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3 text-white" data-lang-key="service2Title"></h3>
                         <p class="text-gray-300" data-lang-key="service2Body"></p>
                     </div>
-                    <div class="service-card glass-card p-8 rounded-3xl">
-                        <h3 class="text-2xl font-semibold mb-3 text-blue-500" data-lang-key="service3Title"></h3>
+                    <!-- Service 3 -->
+                    <div class="service-card glass-card p-8 rounded-3xl flex flex-col items-center text-center">
+                        <div class="p-4 bg-gray-800/50 rounded-xl mb-6 inline-block">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" role="img" aria-labelledby="service3TitleSVG">
+                                <title id="service3TitleSVG" data-lang-key="service3Title"></title>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16 8l2-2m0 0l2 2m-2-2v4a1 1 0 01-1 1h-4m4-4H8a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 019-9m9 9a9 9 0 01-9 9" />
+                                <path d="M15 13l-3-3-3 3" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-3 text-white" data-lang-key="service3Title"></h3>
                         <p class="text-gray-300" data-lang-key="service3Body"></p>
                     </div>
                 </div>
@@ -363,39 +263,27 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center relative max-w-6xl mx-auto">
                     <div class="flex flex-col items-center">
-                        <div
-                            class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">
-                            1</div>
-                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step1Title"></h3>
-                        <p class="text-gray-400" data-lang-key="step1Body"></p>
+                        <div class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">1</div>
+                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step1Title"></h3><p class="text-gray-400" data-lang-key="step1Body"></p>
                     </div>
                     <div class="flex flex-col items-center">
-                        <div
-                            class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">
-                            2</div>
-                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step2Title"></h3>
-                        <p class="text-gray-400" data-lang-key="step2Body"></p>
+                         <div class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">2</div>
+                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step2Title"></h3><p class="text-gray-400" data-lang-key="step2Body"></p>
                     </div>
                     <div class="flex flex-col items-center">
-                        <div
-                            class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">
-                            3</div>
-                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step3Title"></h3>
-                        <p class="text-gray-400" data-lang-key="step3Body"></p>
+                         <div class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">3</div>
+                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step3Title"></h3><p class="text-gray-400" data-lang-key="step3Body"></p>
                     </div>
                     <div class="flex flex-col items-center">
-                        <div
-                            class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">
-                            4</div>
-                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step4Title"></h3>
-                        <p class="text-gray-400" data-lang-key="step4Body"></p>
+                         <div class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">4</div>
+                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step4Title"></h3><p class="text-gray-400" data-lang-key="step4Body"></p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- AI Threat Analysis Section -->
-        <section id="threat-analysis" class="py-24 md:py-36 fade-in-section">
+        <!-- AI Strategy Section -->
+        <section id="ai-strategy" class="py-24 md:py-36 fade-in-section">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-4xl md:text-5xl font-bold text-white" data-lang-key="aiTitle"></h2>
@@ -404,31 +292,24 @@
                 <div class="glass-card rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
                     <div class="space-y-6">
                         <div>
-                            <label for="business-description" class="block text-md font-medium text-gray-300 mb-2"
-                                data-lang-key="aiInputLabel"></label>
-                            <input type="text" id="business-description"
-                                class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                data-lang-key="aiInputPlaceholder">
+                            <label for="business-goal" class="block text-md font-medium text-gray-300 mb-2" data-lang-key="aiInputLabel"></label>
+                            <input type="text" id="business-goal" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" data-lang-key="aiInputPlaceholder">
                         </div>
-                        <button id="generate-report-btn"
-                            class="btn-primary font-semibold py-3 px-8 rounded-full text-lg w-full"
-                            data-lang-key="aiBtn"></button>
+                        <button id="generate-strategy-btn" class="btn-primary font-semibold py-3 px-8 rounded-full text-lg w-full" data-lang-key="aiBtn"></button>
                     </div>
-                    <div id="report-output" class="mt-8 threat-report-container text-gray-300"></div>
+                    <div id="strategy-output" class="mt-8 ai-response-container text-gray-300"></div>
                 </div>
             </div>
         </section>
-
+        
         <!-- Contact / CTA Section -->
         <section id="contact" class="py-24 md:py-40 fade-in-section">
             <div class="container mx-auto px-6 text-center">
-                <div class="glass-card rounded-3xl p-8 md:p-16 max-w-4xl mx-auto">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white" data-lang-key="ctaTitle"></h2>
-                    <p class="text-lg text-gray-400 mt-6 max-w-2xl mx-auto" data-lang-key="ctaBody"></p>
-                    <a href="mailto:sales@digitalsandiinformasi.com"
-                        class="btn-primary font-semibold py-3 px-8 rounded-full text-lg inline-block mt-10"
-                        data-lang-key="ctaBtn"></a>
-                </div>
+                 <div class="glass-card rounded-3xl p-8 md:p-16 max-w-4xl mx-auto">
+                     <h2 class="text-4xl md:text-5xl font-bold text-white" data-lang-key="ctaTitle"></h2>
+                     <p class="text-lg text-gray-400 mt-6 max-w-2xl mx-auto" data-lang-key="ctaBody"></p>
+                     <a href="mailto:cs@digitalsandiinformasi.com" class="btn-primary font-semibold py-3 px-8 rounded-full text-lg inline-block mt-10" data-lang-key="ctaBtn"></a>
+                 </div>
             </div>
         </section>
     </main>
@@ -438,11 +319,9 @@
         <div class="container mx-auto px-6 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="md:col-span-1">
-                    <a href="#" class="text-2xl font-semibold text-white flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-2 text-gray-400" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                     <a href="#" class="text-2xl font-semibold text-white flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
                         DSI
                     </a>
@@ -451,26 +330,22 @@
                 <div>
                     <h3 class="text-lg font-semibold text-white" data-lang-key="footerNav"></h3>
                     <ul class="mt-4 space-y-2">
-                        <li><a href="#philosophy" class="text-gray-400 hover:text-white"
-                                data-lang-key="navPhilosophy"></a></li>
-                        <li><a href="#advantage" class="text-gray-400 hover:text-white"
-                                data-lang-key="navAdvantage"></a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white" data-lang-key="navServices"></a>
-                        </li>
+                        <li><a href="#philosophy" class="text-gray-400 hover:text-white" data-lang-key="navPhilosophy"></a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white" data-lang-key="navServices"></a></li>
+                        <li><a href="#process" class="text-gray-400 hover:text-white" data-lang-key="navProcess"></a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold text-white" data-lang-key="footerCompany"></h3>
-                    <ul class="mt-4 space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white" data-lang-key="footerAbout"></a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white" data-lang-key="footerCareers"></a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white" data-lang-key="navContact"></a>
-                        </li>
-                    </ul>
+                    <h3 class="text-lg font-semibold text-white" data-lang-key="footerContact"></h3>
+                     <address class="mt-4 space-y-2 not-italic text-gray-400">
+                        <p data-lang-key="footerAddress"></p>
+                        <p><span data-lang-key="footerPhone"></span> <a href="tel:+622157953431" class="hover:text-white">(+62) 21 5795 3431</a></p>
+                        <p>E-mail: <a href="mailto:cs@digitalsandiinformasi.com" class="hover:text-white">cs@digitalsandiinformasi.com</a></p>
+                    </address>
                 </div>
-                <div>
+                 <div>
                     <h3 class="text-lg font-semibold text-white" data-lang-key="footerConnect"></h3>
-                    <ul class="mt-4 space-y-2">
+                     <ul class="mt-4 space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white">LinkedIn</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white">Twitter</a></li>
                     </ul>
@@ -487,138 +362,120 @@
         // --- Translations Object ---
         const translations = {
             id: {
+                metaDescription: "PT Digital Sandi Informasi (DSI) adalah pengembang aplikasi telco dan penyedia konten terkemuka di Indonesia. Kami menawarkan solusi aplikasi multikanal (SMS, UMB), integrasi operator, dan layanan call center 112 yang andal.",
                 // Nav
                 navPhilosophy: "Filosofi",
-                navAdvantage: "Keunggulan",
-                navServices: "Layanan",
+                navServices: "Layanan Kami",
                 navProcess: "Proses",
-                navAiAnalysis: "Analisis AI",
+                navAiStrategy: "Perencana Strategi",
                 navContact: "Kontak",
                 // Hero
-                heroTitle: "Merancang Masa Depan Digital Anda.",
-                heroSubtitle: "Kami mengubah infrastruktur IT Anda dari kebutuhan operasional menjadi mesin pertumbuhan dan inovasi yang kuat dan aman.",
+                heroTitle: "Menghubungkan Peluang Digital Anda.",
+                heroSubtitle: "Kami mengembangkan aplikasi dan layanan telco yang inovatif, menghubungkan bisnis Anda dengan jutaan pelanggan di seluruh Indonesia.",
                 heroBtnPrimary: "Minta Konsultasi",
-                heroBtnSecondary: "Pelajari Lebih Lanjut",
+                heroBtnSecondary: "Lihat Layanan Kami",
                 // Philosophy
                 philosophyTag: "Filosofi Kami",
-                philosophyTitle: "Lebih dari Sekadar Layanan, Kami Memberikan Kepastian.",
-                philosophyBody: "Di DSI, kami tidak hanya menyelesaikan masalah IT; kami merancang ekosistem digital yang kokoh, aman, dan cerdas yang menjadi landasan kesuksesan klien kami. Kami adalah penjaga senyap jaringan Anda dan mitra berdedikasi dalam perjalanan Anda ke depan.",
-                // Advantage
-                advantageTitle: "Keunggulan DSI",
-                advantageSubtitle: "Mengapa para pemimpin industri memercayai kami sebagai mitra strategis IT mereka.",
-                adv1Title: "Kemitraan Proaktif",
-                adv1Body: "Kami menetralisir potensi masalah sebelum berdampak pada bisnis Anda melalui pemantauan prediktif dan tinjauan strategis.",
-                adv2Title: "Kewaspadaan Sibernetik 24/7",
-                adv2Body: "Pertahanan sepanjang waktu untuk data, infrastruktur, dan reputasi Anda terhadap lanskap ancaman yang terus berkembang.",
-                adv3Title: "Arsitektur yang Disesuaikan",
-                adv3Body: "Solusi IT yang dirancang khusus untuk kebutuhan unik Anda saat ini, dan direkayasa agar dapat diskalakan untuk masa depan.",
-                adv4Title: "Integrasi Holistik",
-                adv4Body: "Dari keamanan fisik hingga logika jaringan, kami menyediakan solusi terintegrasi tanpa celah di bawah satu mitra tepercaya.",
+                philosophyTitle: "Lebih dari Sekadar Koneksi, Kami Menciptakan Keterlibatan.",
+                philosophyBody: "Di DSI, kami tidak hanya membangun aplikasi; kami merancang jembatan digital yang kokoh dan cerdas antara bisnis dan pelanggan mereka, memastikan setiap interaksi bermakna dan berdampak.",
                 // Services
-                servicesTitle: "Cetak Biru untuk Keunggulan Digital",
-                servicesSubtitle: "Tiga pilar inti memastikan fondasi digital Anda direkayasa untuk kinerja puncak.",
-                service1Title: "Keamanan",
-                service1Body: "Pertahanan jaringan berlapis, firewall generasi baru, dan sistem pengawasan terintegrasi untuk melindungi aset digital dan fisik Anda yang paling penting.",
-                service2Title: "Infrastruktur",
-                service2Body: "Kami merancang, membangun, dan memelihara tulang punggung operasi Anda, dari solusi server yang kuat dan jaringan hingga pengadaan IT strategis.",
-                service3Title: "Dukungan",
-                service3Body: "Pemeliharaan proaktif dan dukungan respons cepat untuk memastikan waktu kerja maksimal, sehingga Anda dapat fokus pada bisnis inti Anda.",
+                servicesTitle: "Layanan Inti Kami",
+                servicesSubtitle: "Kami Mengembangkan Aplikasi Untuk Menghubungkan Antara Operator Sebagai Penyedia Konten & Klien Sebagai Penyedia Konten.",
+                service1Title: "Aplikasi Multikanal",
+                service1Body: "Kami mendukung penyediaan semua saluran untuk konten, termasuk SMS, UMB, STK, WAP/WEB, dan TELCO STORE CONTENT.",
+                service2Title: "Pengembangan Telco",
+                service2Body: "Aplikasi kami dapat dan telah terbukti terintegrasi dengan semua operator di Indonesia, mendukung program koneksi dan program eksklusif dengan telco.",
+                service3Title: "Layanan Call Center 112",
+                service3Body: "Menyediakan dan mengelola infrastruktur Call Center 112 yang andal untuk layanan darurat di berbagai kota dan kabupaten di Indonesia.",
                 // Process
                 processTitle: "Proses Strategis Kami",
                 processSubtitle: "Metodologi yang terbukti untuk memberikan kepastian dan hasil.",
-                step1Title: "Penemuan & Penilaian",
-                step1Body: "Kami mulai dengan penelaahan mendalam terhadap infrastruktur, tujuan, dan masalah Anda saat ini.",
-                step2Title: "Arsitektur & Desain",
-                step2Body: "Pakar kami membuat cetak biru IT yang dipesan lebih dahulu, terukur, dan aman yang disesuaikan dengan kebutuhan Anda.",
-                step3Title: "Implementasi & Pengamanan",
-                step3Body: "Kami menerapkan infrastruktur baru Anda dengan presisi, menerapkan keamanan yang kuat di setiap lapisan.",
-                step4Title: "Pemantauan & Dukungan",
-                step4Body: "Pekerjaan kami tidak selesai saat peluncuran. Kami menyediakan pemantauan dan dukungan 24/7 untuk memastikan kinerja puncak.",
-                // AI Analysis
-                aiTitle: "Mesin Analisis Ancaman Strategis",
-                aiSubtitle: "Dapatkan laporan instan bertenaga AI tentang risiko keamanan siber teratas untuk industri spesifik Anda.",
-                aiInputLabel: "Jelaskan bisnis atau industri Anda:",
-                aiInputPlaceholder: "contoh: Startup e-commerce di Jakarta, firma hukum Indonesia...",
-                aiBtn: "✨ Buat Laporan Ancaman",
+                step1Title: "Analisis Kebutuhan",
+                step1Body: "Kami mulai dengan penelaahan mendalam terhadap tujuan bisnis, target audiens, dan tantangan teknis Anda.",
+                step2Title: "Desain Solusi",
+                step2Body: "Tim kami merancang solusi aplikasi atau layanan yang terukur dan efisien, disesuaikan dengan ekosistem telco Indonesia.",
+                step3Title: "Implementasi & Integrasi",
+                step3Body: "Kami menerapkan solusi dengan presisi, melakukan integrasi tanpa celah dengan sistem operator dan klien.",
+                step4Title: "Dukungan & Optimalisasi",
+                step4Body: "Kami menyediakan dukungan berkelanjutan dan optimalisasi layanan untuk memastikan kinerja dan jangkauan maksimum.",
+                // AI Strategy
+                aiTitle: "Perencana Strategi Telco",
+                aiSubtitle: "Jelaskan tujuan bisnis Anda dan dapatkan draf strategi keterlibatan multikanal yang cerdas dan efektif.",
+                aiInputLabel: "Apa tujuan bisnis atau kampanye Anda?",
+                aiInputPlaceholder: "contoh: Promosikan bisnis Anda dengan penawaran telekomunikasi melalui SMS...",
+                aiBtn: "✨ Buat Draf Strategi",
+                aiErrorMinChars: "Mohon jelaskan tujuan Anda dengan lebih detail (minimal 40 karakter).",
+                aiWarning: "<strong>Peringatan:</strong> Konten ini dibuat oleh AI sebagai draf awal dan mungkin memerlukan penyesuaian. Harap verifikasi semua informasi dan strategi sebelum implementasi.",
                 // CTA
-                ctaTitle: "Siap Merancang Masa Depan Anda?",
-                ctaBody: "Mari bangun fondasi digital yang lebih aman, efisien, dan terukur untuk bisnis Anda. Hubungi pakar kami hari ini untuk konsultasi gratis.",
+                ctaTitle: "Siap Terhubung dengan Audiens Anda?",
+                ctaBody: "Mari bangun jembatan digital yang lebih kuat antara bisnis Anda dan pelanggan. Hubungi pakar kami hari ini untuk konsultasi gratis.",
                 ctaBtn: "Hubungi Kami",
                 // Footer
-                footerTagline: "Merancang Masa Depan Digital Anda. Dengan Aman.",
+                footerTagline: "Menghubungkan Peluang Digital Anda.",
                 footerNav: "Navigasi",
-                footerCompany: "Perusahaan",
-                footerAbout: "Tentang Kami",
-                footerCareers: "Karier",
+                footerContact: "Hubungi Kami",
+                footerAddress: "Kantor Taman A9, Unit C7 Lt. 3, Jl. DR Ide Anak Agung Gde Agung, Mega Kuningan, Jakarta Selatan, Indonesia",
+                footerPhone: "Telepon:",
                 footerConnect: "Terhubung",
-                footerSubtext: "Menciptakan solusi IT yang aman dan andal di Jakarta, Indonesia."
+                footerSubtext: "Menciptakan solusi telco dan layanan pelanggan yang andal di Jakarta, Indonesia."
             },
             en: {
+                metaDescription: "PT Digital Sandi Informasi (DSI) is a leading telco application developer and content provider in Indonesia. We offer multichannel application solutions (SMS, UMB), operator integration, and reliable 112 call center services.",
                 // Nav
                 navPhilosophy: "Philosophy",
-                navAdvantage: "Advantage",
-                navServices: "Services",
+                navServices: "Our Services",
                 navProcess: "Process",
-                navAiAnalysis: "AI Analysis",
+                navAiStrategy: "Strategy Planner",
                 navContact: "Contact",
                 // Hero
-                heroTitle: "Architecting Your Digital Future.",
-                heroSubtitle: "We transform your IT infrastructure from an operational necessity into a powerful, secure engine for growth and innovation.",
+                heroTitle: "Connecting Your Digital Opportunities.",
+                heroSubtitle: "We develop innovative telco applications and services, connecting your business with millions of customers across Indonesia.",
                 heroBtnPrimary: "Request a Consultation",
-                heroBtnSecondary: "Learn More",
+                heroBtnSecondary: "View Our Services",
                 // Philosophy
                 philosophyTag: "Our Philosophy",
-                philosophyTitle: "Beyond Service, We Provide Certainty.",
-                philosophyBody: "At DSI, we don't just solve IT problems; we architect robust, secure, and intelligent digital ecosystems that become the bedrock of our clients' success. We are the silent guardians of your network and the dedicated partners in your journey forward.",
-                // Advantage
-                advantageTitle: "The DSI Advantage",
-                advantageSubtitle: "Why industry leaders trust us as their strategic IT partner.",
-                adv1Title: "Proactive Partnership",
-                adv1Body: "We neutralize potential issues before they impact your business through predictive monitoring and strategic foresight.",
-                adv2Title: "Cybernetic Vigilance 24/7",
-                adv2Body: "Around-the-clock defense for your data, infrastructure, and reputation against an evolving threat landscape.",
-                adv3Title: "Tailored Architecture",
-                adv3Body: "Bespoke IT solutions designed for your unique needs today, and engineered to be scalable for tomorrow.",
-                adv4Title: "Holistic Integration",
-                adv4Body: "From physical security to network logic, we provide a seamlessly integrated solution under a single, trusted partner.",
+                philosophyTitle: "Beyond Connection, We Create Engagement.",
+                philosophyBody: "At DSI, we don't just build applications; we engineer robust and intelligent digital bridges between businesses and their customers, ensuring every interaction is meaningful and impactful.",
                 // Services
-                servicesTitle: "Blueprint for Digital Excellence",
-                servicesSubtitle: "Three core pillars ensuring your digital foundation is engineered for peak performance.",
-                service1Title: "Security",
-                service1Body: "Multi-layered network defense, next-gen firewalls, and integrated surveillance systems to protect your most critical digital and physical assets.",
-                service2Title: "Infrastructure",
-                service2Body: "We design, build, and maintain the backbone of your operations, from robust server solutions and networking to strategic IT procurement.",
-                service3Title: "Support",
-                service3Body: "Proactive maintenance and rapid-response support to ensure maximum uptime, so you can focus on your core business.",
+                servicesTitle: "Our Core Services",
+                servicesSubtitle: "We Develop Applications To Connect Between The Operator As A Content Provider & The Client As A Content Provider.",
+                service1Title: "Multichannel Application",
+                service1Body: "We support providing all channels for content, including SMS, UMB, STK, WAP/WEB, and TELCO STORE CONTENT.",
+                service2Title: "Telco Development",
+                service2Body: "Our applications can be and have been shown to integrate with all operators in Indonesia, supporting telco connections and exclusive programs.",
+                service3Title: "112 Call Center Service",
+                service3Body: "Providing and managing reliable 112 Call Center infrastructure for emergency services in various cities and districts in Indonesia.",
                 // Process
                 processTitle: "Our Strategic Process",
                 processSubtitle: "A proven methodology for delivering certainty and results.",
-                step1Title: "Discover & Assess",
-                step1Body: "We begin with a deep dive into your current infrastructure, goals, and pain points.",
-                step2Title: "Architect & Design",
-                step2Body: "Our experts craft a bespoke, scalable, and secure IT blueprint tailored to your needs.",
-                step3Title: "Implement & Secure",
-                step3Body: "We deploy your new infrastructure with precision, implementing robust security at every layer.",
-                step4Title: "Monitor & Support",
-                step4Body: "Our job isn't done at launch. We provide 24/7 monitoring and support to ensure peak performance.",
-                // AI Analysis
-                aiTitle: "Strategic Threat Analysis Engine",
-                aiSubtitle: "Get an instant, AI-powered report on the top cybersecurity risks for your specific industry.",
-                aiInputLabel: "Describe your business or industry:",
-                aiInputPlaceholder: "e.g., E-commerce startup in Jakarta, Indonesian law firm...",
-                aiBtn: "✨ Generate Threat Report",
+                step1Title: "Needs Analysis",
+                step1Body: "We begin with a deep dive into your business goals, target audience, and technical challenges.",
+                step2Title: "Solution Design",
+                step2Body: "Our team designs a scalable and efficient application or service solution, tailored to the Indonesian telco ecosystem.",
+                step3Title: "Implementation & Integration",
+                step3Body: "We deploy the solution with precision, performing seamless integration with operator and client systems.",
+                step4Title: "Support & Optimization",
+                step4Body: "We provide ongoing support and service optimization to ensure maximum performance and reach.",
+                // AI Strategy
+                aiTitle: "Telco Strategy Planner",
+                aiSubtitle: "Describe your business goals and get a smart and effective draft of a multichannel engagement strategy.",
+                aiInputLabel: "What is your business or campaign goal?",
+                aiInputPlaceholder: "e.g., Promote your business with telecom offers via SMS...",
+                aiBtn: "✨ Draft Strategy",
+                aiErrorMinChars: "Please describe your goal in more detail (minimum 40 characters).",
+                aiWarning: "<strong>Disclaimer:</strong> This content is AI-generated as an initial draft and may require adjustment. Please verify all information and strategies before implementation.",
                 // CTA
-                ctaTitle: "Ready to Architect Your Future?",
-                ctaBody: "Let's build a more secure, efficient, and scalable digital foundation for your business. Contact our experts today for a complimentary consultation.",
+                ctaTitle: "Ready to Connect with Your Audience?",
+                ctaBody: "Let's build a stronger digital bridge between your business and your customers. Contact our experts today for a complimentary consultation.",
                 ctaBtn: "Get In Touch",
                 // Footer
-                footerTagline: "Architecting Your Digital Future. Securely.",
+                footerTagline: "Connecting Your Digital Opportunities.",
                 footerNav: "Navigate",
-                footerCompany: "Company",
-                footerAbout: "About Us",
-                footerCareers: "Careers",
+                footerContact: "Contact Us",
+                footerAddress: "Kantor Taman A9, Unit C7 Fl. 3, Jl. DR Ide Anak Agung Gde Agung, Mega Kuningan, South Jakarta, Indonesia",
+                footerPhone: "Phone:",
                 footerConnect: "Connect",
-                footerSubtext: "Crafting secure and reliable IT solutions in Jakarta, Indonesia."
+                footerSubtext: "Crafting reliable telco and customer service solutions in Jakarta, Indonesia."
             }
         };
 
@@ -627,15 +484,19 @@
         const langEnBtn = document.getElementById('lang-en');
         const langIdMobileBtn = document.getElementById('lang-id-mobile');
         const langEnMobileBtn = document.getElementById('lang-en-mobile');
+        const metaDescriptionTag = document.querySelector('meta[name="description"]');
 
         const changeLanguage = (lang) => {
             document.documentElement.lang = lang;
             document.title = lang === 'id' ? 'PT Digital Sandi Informasi - Merancang Masa Depan Digital Anda' : 'PT Digital Sandi Informasi - Architecting Your Digital Future';
+            
+            window.location.hash = lang;
+            metaDescriptionTag.setAttribute('content', translations[lang]['metaDescription']);
 
             document.querySelectorAll('[data-lang-key]').forEach(el => {
                 const key = el.getAttribute('data-lang-key');
-                if (translations[lang][key]) {
-                    if (el.tagName === 'INPUT' && el.placeholder !== undefined) {
+                if(translations[lang][key]) {
+                     if(el.tagName === 'INPUT' && el.placeholder !== undefined) {
                         el.placeholder = translations[lang][key];
                     } else {
                         el.innerHTML = translations[lang][key];
@@ -655,12 +516,12 @@
                 langIdMobileBtn.classList.remove('lang-active');
             }
         };
-
+        
         langIdBtn.addEventListener('click', () => changeLanguage('id'));
         langEnBtn.addEventListener('click', () => changeLanguage('en'));
         langIdMobileBtn.addEventListener('click', () => changeLanguage('id'));
         langEnMobileBtn.addEventListener('click', () => changeLanguage('en'));
-
+        
         // --- Mobile Menu Toggle ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -687,178 +548,89 @@
         let particlesArray;
 
         let mouse = { x: null, y: null, radius: (canvas.height / 120) * (canvas.width / 120) };
-        window.addEventListener('mousemove', e => {
-            mouse.x = e.x;
-            mouse.y = e.y;
-        });
+        window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
 
         class Particle {
-            constructor(x, y, directionX, directionY, size, color) {
-                this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY; this.size = size; this.color = color;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = 'rgba(41, 151, 255, 0.5)';
-                ctx.fill();
-            }
-            update() {
-                if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
-                if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
-                let dx = mouse.x - this.x;
-                let dy = mouse.y - this.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < mouse.radius + this.size) {
-                    if (mouse.x < this.x && this.x < canvas.width - this.size * 10) this.x += 5;
-                    if (mouse.x > this.x && this.x > this.size * 10) this.x -= 5;
-                    if (mouse.y < this.y && this.y < canvas.height - this.size * 10) this.y += 5;
-                    if (mouse.y > this.y && this.y > this.size * 10) this.y -= 5;
-                }
-                this.x += this.directionX;
-                this.y += this.directionY;
-                this.draw();
-            }
+            constructor(x, y, directionX, directionY, size, color) { this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY; this.size = size; this.color = color; }
+            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false); ctx.fillStyle = 'rgba(41, 151, 255, 0.5)'; ctx.fill(); }
+            update() { if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX; if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY; let dx = mouse.x - this.x; let dy = mouse.y - this.y; let distance = Math.sqrt(dx * dx + dy * dy); if (distance < mouse.radius + this.size) { if (mouse.x < this.x && this.x < canvas.width - this.size * 10) this.x += 5; if (mouse.x > this.x && this.x > this.size * 10) this.x -= 5; if (mouse.y < this.y && this.y < canvas.height - this.size * 10) this.y += 5; if (mouse.y > this.y && this.y > this.size * 10) this.y -= 5; } this.x += this.directionX; this.y += this.directionY; this.draw(); }
         }
 
-        function init() {
-            particlesArray = [];
-            let numberOfParticles = (canvas.height * canvas.width) / 9000;
-            for (let i = 0; i < numberOfParticles; i++) {
-                let size = (Math.random() * 2) + 1;
-                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-                let directionX = (Math.random() * 0.4) - 0.2;
-                let directionY = (Math.random() * 0.4) - 0.2;
-                let color = '#2997FF';
-                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-            }
-        }
+        function init() { particlesArray = []; let numberOfParticles = (canvas.height * canvas.width) / 9000; for (let i = 0; i < numberOfParticles; i++) { let size = (Math.random() * 2) + 1; let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2); let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2); let directionX = (Math.random() * 0.4) - 0.2; let directionY = (Math.random() * 0.4) - 0.2; let color = '#2997FF'; particlesArray.push(new Particle(x, y, directionX, directionY, size, color)); } }
+        function connect() { let opacityValue = 1; for (let a = 0; a < particlesArray.length; a++) { for (let b = a; b < particlesArray.length; b++) { let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y)); if (distance < (canvas.width / 7) * (canvas.height / 7)) { opacityValue = 1 - (distance / 20000); ctx.strokeStyle = `rgba(41, 151, 255, ${opacityValue})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particlesArray[a].x, particlesArray[a].y); ctx.lineTo(particlesArray[b].x, particlesArray[b].y); ctx.stroke(); } } } }
+        function animate() { requestAnimationFrame(animate); ctx.clearRect(0, 0, innerWidth, innerHeight); for (let i = 0; i < particlesArray.length; i++) { particlesArray[i].update(); } connect(); }
 
-        function connect() {
-            let opacityValue = 1;
-            for (let a = 0; a < particlesArray.length; a++) {
-                for (let b = a; b < particlesArray.length; b++) {
-                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) +
-                        ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-                    if (distance < (canvas.width / 7) * (canvas.height / 7)) {
-                        opacityValue = 1 - (distance / 20000);
-                        ctx.strokeStyle = `rgba(41, 151, 255, ${opacityValue})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            ctx.clearRect(0, 0, innerWidth, innerHeight);
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-            }
-            connect();
-        }
-
-        window.addEventListener('resize', () => {
-            canvas.width = innerWidth;
-            canvas.height = innerHeight;
-            mouse.radius = (canvas.height / 120) * (canvas.width / 120);
-            init();
-        });
+        window.addEventListener('resize', () => { canvas.width = innerWidth; canvas.height = innerHeight; mouse.radius = (canvas.height / 120) * (canvas.width / 120); init(); });
         window.addEventListener('mouseout', () => { mouse.x = undefined; mouse.y = undefined; });
         init();
         animate();
-
+        
         // --- Nav Active on Scroll ---
         const navLinks = document.querySelectorAll('header a[href^="#"]');
         const scrollSections = document.querySelectorAll('main section[id]');
-
-        const activateNavOnScroll = () => {
-            let current = 'hero'; // Default to hero
-            scrollSections.forEach(section => {
-                const sectionTop = section.offsetTop - 150;
-                if (scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('nav-active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('nav-active');
-                }
-            });
-        };
+        const activateNavOnScroll = () => { let current = 'hero'; scrollSections.forEach(section => { const sectionTop = section.offsetTop - 150; if (scrollY >= sectionTop) { current = section.getAttribute('id'); } }); navLinks.forEach(link => { link.classList.remove('nav-active'); if (link.getAttribute('href').includes(current)) { link.classList.add('nav-active'); } }); };
         window.addEventListener('scroll', activateNavOnScroll);
-
-        // --- AI Threat Analysis Feature ---
-        const generateBtn = document.getElementById('generate-report-btn');
-        const businessInput = document.getElementById('business-description');
-        const reportOutput = document.getElementById('report-output');
-
+        
+        // --- AI Strategy Planner Feature (Gemini) ---
+        const generateBtn = document.getElementById('generate-strategy-btn');
+        const businessInput = document.getElementById('business-goal');
+        const strategyOutput = document.getElementById('strategy-output');
         generateBtn.addEventListener('click', async () => {
-            const businessDescription = businessInput.value.trim();
-            if (!businessDescription) {
-                reportOutput.innerHTML = `<p class="text-red-400">Please describe your business or industry first.</p>`;
+            const currentLang = document.documentElement.lang || 'id';
+            const businessGoal = businessInput.value.trim();
+
+            if (businessGoal.length < 40) {
+                strategyOutput.innerHTML = `<p class="text-red-400">${translations[currentLang]['aiErrorMinChars']}</p>`;
                 return;
             }
 
             generateBtn.disabled = true;
             generateBtn.innerHTML = '<div class="loader mx-auto"></div>';
-            reportOutput.innerHTML = '';
-
-            // This should point to your live Cloudflare Worker URL
-            const apiUrl = 'https://dsi-api-proxy.muhammadmaududy4.workers.dev';
-
-            const systemPrompt = "You are a world-class cybersecurity analyst with expertise in the Southeast Asian, particularly Indonesian, threat landscape. Your task is to provide a concise, actionable, and professional cybersecurity threat report based on a user's business description. The report should be easy for a business owner to understand. Focus on the top 3 most relevant and current threats.";
-
-            const userQuery = `Generate a cybersecurity threat report for the following business: "${businessDescription}". For each of the top 3 threats, describe the threat, explain the common attack vectors, and suggest 2-3 high-level mitigation strategies. Format the entire response in clear markdown with headings for each threat.`;
-
-            const payload = {
-                systemInstruction: { parts: [{ text: systemPrompt }] },
-                contents: [{ parts: [{ text: userQuery }] }],
-                tools: [{ "google_search": {} }],
-            };
-
+            strategyOutput.innerHTML = '';
+            
+            const apiUrl = 'https://dsi-api-proxy.muhammadmaududy4.workers.dev/'; 
+            
+            const systemPrompt = "You are an expert consultant in Indonesian telecommunications and mobile marketing. Your client is PT Digital Sandi Informasi (DSI), a company specializing in multichannel applications (SMS, UMB, STK, WAP/WEB), Telco integration, and Call Center services, including managing the 112 emergency call center in several Indonesian cities. Based on the user's business goal, your task is to generate a concise, high-level multichannel engagement strategy proposal. The proposal should leverage DSI's core services. The output should be in clear markdown, suggesting 2-3 strategic channels and briefly explaining why each is suitable for the user's goal in the Indonesian market.";
+            const userQuery = `Generate a high-level multichannel engagement strategy proposal for the following business goal: '${businessGoal}'. Suggest specific channels like SMS Blasting, UMB (USSD) menus, or other relevant telco services, and explain the benefits for each in the context of the Indonesian market.`;
+            
+            const payload = { systemInstruction: { parts: [{ text: systemPrompt }] }, contents: [{ parts: [{ text: userQuery }] }], tools: [{ "google_search": {} }], };
+            
             try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
+                const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                 if (!response.ok) throw new Error(`API error: ${response.statusText}`);
-
                 const result = await response.json();
                 const geminiResponse = result.candidates?.[0]?.content?.parts?.[0]?.text;
-
+                
                 if (geminiResponse) {
-                    reportOutput.innerHTML = marked.parse(geminiResponse);
+                    const warningDiv = document.createElement('div');
+                    warningDiv.className = 'ai-warning';
+                    warningDiv.innerHTML = translations[currentLang]['aiWarning'];
+                    strategyOutput.appendChild(warningDiv);
+
+                    const responseDiv = document.createElement('div');
+                    responseDiv.innerHTML = marked.parse(geminiResponse);
+                    strategyOutput.appendChild(responseDiv);
+
                 } else {
                     console.error("Invalid response structure from API:", result);
                     throw new Error("Received an invalid response from the API.");
                 }
-
             } catch (error) {
-                console.error("Error generating report:", error);
-                reportOutput.innerHTML = `<p class="text-red-400">Sorry, we couldn't generate the report at this time. Please try again later.</p>`;
+                console.error("Error generating strategy:", error);
+                strategyOutput.innerHTML = `<p class="text-red-400">Sorry, we couldn't generate the strategy at this time. Please try again later.</p>`;
             } finally {
                 generateBtn.disabled = false;
-                const currentLang = document.documentElement.lang || 'id';
                 generateBtn.innerHTML = translations[currentLang]['aiBtn'];
             }
         });
-
+        
         // --- Initial Load ---
         document.addEventListener('DOMContentLoaded', () => {
-            changeLanguage('id'); // Set default language to Indonesian
-            activateNavOnScroll(); // Set active nav link on load
+            const initialLang = window.location.hash.replace('#', '') || 'id';
+            changeLanguage(['id', 'en'].includes(initialLang) ? initialLang : 'id');
+            activateNavOnScroll();
         });
-
     </script>
 </body>
-
 </html>
+
