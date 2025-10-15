@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/png" href="public/images/dsi-logo.png">
     <style>
         html {
@@ -130,6 +131,15 @@
         .ai-warning strong {
             color: #FFC107;
         }
+        .partner-logo {
+            font-size: 4rem;
+            color: white;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        .partner-logo:hover {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -149,6 +159,7 @@
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#philosophy" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navPhilosophy"></a>
                 <a href="#services" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navServices"></a>
+                <a href="#partners" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navPartners"></a>
                 <a href="#process" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navProcess"></a>
                 <a href="#ai-strategy" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navAiStrategy"></a>
                 <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navContact"></a>
@@ -168,6 +179,7 @@
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#philosophy" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navPhilosophy"></a>
                 <a href="#services" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navServices"></a>
+                <a href="#partners" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navPartners"></a>
                 <a href="#process" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navProcess"></a>
                 <a href="#ai-strategy" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navAiStrategy"></a>
                 <a href="#contact" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navContact"></a>
@@ -254,8 +266,8 @@
             </div>
         </section>
 
-         <!-- Our Partners Section -->
-         <section id="partners" class="py-24 md:py-36 fade-in-section">
+        <!-- Our Partners Section -->
+        <section id="partners" class="py-24 md:py-36 fade-in-section">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl md:text-5xl font-bold text-white" data-lang-key="partnersTitle"></h2>
@@ -347,12 +359,6 @@
         <div class="container mx-auto px-6 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div class="md:col-span-1">
-                     <!-- <a href="#" class="text-2xl font-semibold text-white flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                        </svg>
-                        DSI
-                    </a> -->
                     <a href="#" class="text-2xl font-semibold text-white flex flex-col items-start gap-y-2">
                         <img src="public/images/dsi-logo.png" class="h-auto max-h-10" alt="dsi-logo">
                         <div class="leading-tight">
@@ -367,6 +373,7 @@
                     <ul class="mt-4 space-y-2">
                         <li><a href="#philosophy" class="text-gray-400 hover:text-white" data-lang-key="navPhilosophy"></a></li>
                         <li><a href="#services" class="text-gray-400 hover:text-white" data-lang-key="navServices"></a></li>
+                        <li><a href="#partners" class="text-gray-400 hover:text-white" data-lang-key="navPartners"></a></li>
                         <li><a href="#process" class="text-gray-400 hover:text-white" data-lang-key="navProcess"></a></li>
                     </ul>
                 </div>
@@ -401,6 +408,7 @@
                 // Nav
                 navPhilosophy: "Filosofi",
                 navServices: "Layanan Kami",
+                navPartners: "Mitra Kami",
                 navProcess: "Proses",
                 navAiStrategy: "Perencana Strategi",
                 navContact: "Kontak",
@@ -422,9 +430,9 @@
                 service2Body: "Aplikasi kami dapat dan telah terbukti terintegrasi dengan semua operator di Indonesia, mendukung program koneksi dan program eksklusif dengan telco.",
                 service3Title: "Layanan Call Center 112",
                 service3Body: "Menyediakan dan mengelola infrastruktur Call Center 112 yang andal untuk layanan darurat di berbagai kota dan kabupaten di Indonesia.",
-                // Partner Logos Section
-                partnersTitle: "Mitra Operator Kami",
-                partnersSubtitle: "Kami bangga bermitra dengan operator telekomunikasi terkemuka di Indonesia untuk memberikan solusi terbaik bagi klien kami.",
+                 // Partners
+                partnersTitle: "Mitra Terpercaya Kami",
+                partnersSubtitle: "Kami bangga dapat bekerja sama dengan para pemimpin industri telekomunikasi di Indonesia.",
                 // Process
                 processTitle: "Proses Strategis Kami",
                 processSubtitle: "Metodologi yang terbukti untuk memberikan kepastian dan hasil.",
@@ -462,6 +470,7 @@
                 // Nav
                 navPhilosophy: "Philosophy",
                 navServices: "Our Services",
+                navPartners: "Our Partners",
                 navProcess: "Process",
                 navAiStrategy: "Strategy Planner",
                 navContact: "Contact",
@@ -483,9 +492,9 @@
                 service2Body: "Our applications can be and have been shown to integrate with all operators in Indonesia, supporting telco connections and exclusive programs.",
                 service3Title: "112 Call Center Service",
                 service3Body: "Providing and managing reliable 112 Call Center infrastructure for emergency services in various cities and districts in Indonesia.",
-                // Partner Logos Section
-                partnersTitle: "Our Operator Partners",
-                partnersSubtitle: "We are proud to partner with leading telecommunications operators in Indonesia to provide the best solutions for our clients.",
+                // Partners
+                partnersTitle: "Our Trusted Partners",
+                partnersSubtitle: "We are proud to collaborate with the leaders of the telecommunications industry in Indonesia.",
                 // Process
                 processTitle: "Our Strategic Process",
                 processSubtitle: "A proven methodology for delivering certainty and results.",
