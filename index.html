@@ -158,6 +158,11 @@
         /* --- Enhanced Component Styles --- */
         .btn-primary {
             animation: breathe 4s ease-in-out infinite;
+            background-color: #2997FF;
+            color: #FFFFFF;
+        }
+        .dark .btn-primary {
+            background-color: #1E90FF;
         }
 
         .service-card {
@@ -534,10 +539,53 @@
             opacity: 0;
             transition: opacity 0.5s ease;
         }
+
+        .bouncing-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .bouncing-dots span {
+            width: 12px;
+            height: 12px;
+            background-color: #2997FF; /* Change to desired color */
+            border-radius: 50%;
+            animation: bounce 0.6s infinite ease-in-out;
+        }
+        .dark .bouncing-dots span {
+            background-color: #FFD700; /* Change to desired color */
+        }
+
+        .bouncing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .bouncing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 
 <body class="antialiased">
+    <!-- Loading -->
+    <div id="loading-screen"
+        class="fixed inset-0 bg-white dark:bg-black flex items-center justify-center z-50 transition-opacity duration-500">
+        <div class="bouncing-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
     <svg class="absolute w-0 h-0">
         <defs>
             <filter id="threshold">
@@ -978,6 +1026,14 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Loading Screen
+            const loadingScreen = document.getElementById('loading-screen');
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => loadingScreen.style.display = 'none', 500);
+            }, 500); // Minimum 0.5 second loading screen
+
+
             const docEl = document.documentElement;
 
             function applyTheme(theme) {
@@ -1238,9 +1294,9 @@
                 // --- Adaptive Duration Logic ---
                 // Calculate delay per character to finish in ~5 seconds (5000ms)
                 // Set min/max delays to prevent it from being too fast or slow.
-                const totalDuration = 5000;
+                const totalDuration = 1000;
                 let delay = totalDuration / text.length;
-                delay = Math.max(10, Math.min(delay, 75)); // Clamp delay between 10ms and 75ms
+                delay = Math.max(5, Math.min(delay, 75)); // Clamp delay between 10ms and 75ms
 
                 function type() {
                     if (i < text.length) {
@@ -1289,8 +1345,22 @@
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                            systemInstruction: { parts: [{ text: "You are an expert consultant in Indonesian telecommunications..." }] },
-                            contents: [{ parts: [{ text: `Generate a high-level multichannel engagement strategy proposal for the following business goal: '${goal}'.` }] }],
+                            systemInstruction: {
+                                parts: [
+                                    {
+                                        text: "You are an expert consultant in Indonesian telecommunications. Provide concise and actionable advice. Limit your response to 500 words or less. Sometimes put your answer in a table format if it helps clarity."
+                                    }
+                                ]
+                            },
+                            contents: [
+                                {
+                                    parts: [
+                                        {
+                                            text: `Generate a high-level multichannel engagement strategy proposal for the following business goal: '${goal}'. Keep the response brief and focused.`
+                                        }
+                                    ]
+                                }
+                            ],
                             tools: [{ "google_search": {} }],
                         })
                     });
