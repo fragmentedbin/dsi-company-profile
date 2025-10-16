@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@
         html {
             scroll-behavior: smooth;
         }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #000;
@@ -53,9 +55,11 @@
             color: white;
             transition: background-color 0.3s ease;
         }
+
         .btn-primary:hover {
             background-color: #53aeff;
         }
+
         .btn-primary:disabled {
             background-color: #4a5568;
             cursor: not-allowed;
@@ -67,11 +71,13 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: background-color 0.3s ease;
         }
+
         .btn-secondary:hover {
-             background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
-        .advantage-card:hover, .service-card:hover {
+        .advantage-card:hover,
+        .service-card:hover {
             transform: translateY(-8px);
             border-color: rgba(41, 151, 255, 0.7);
             box-shadow: 0 0 25px rgba(41, 151, 255, 0.2);
@@ -87,25 +93,53 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .nav-active {
             color: #2997FF !important;
         }
-        
+
         .lang-switcher button {
             transition: color 0.2s ease;
         }
+
         .lang-switcher .lang-active {
             color: #2997FF;
             font-weight: 600;
         }
-        
-        .ai-response-container { min-height: 200px; }
-        .ai-response-container h3 { font-size: 1.25rem; font-weight: 600; color: #2997FF; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-        .ai-response-container h4 { font-size: 1.1rem; font-weight: 600; color: #fff; margin-top: 1rem; margin-bottom: 0.5rem; }
-        .ai-response-container ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
-        .ai-response-container li { margin-bottom: 0.5rem; }
-        .ai-response-container p { margin-bottom: 1rem; }
+
+        .ai-response-container {
+            min-height: 200px;
+        }
+
+        .ai-response-container h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2997FF;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-response-container h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-response-container ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .ai-response-container li {
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-response-container p {
+            margin-bottom: 1rem;
+        }
 
         .loader {
             border: 4px solid rgba(255, 255, 255, 0.2);
@@ -115,8 +149,11 @@
             height: 40px;
             animation: spin 1s linear infinite;
         }
+
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .ai-warning {
@@ -128,20 +165,44 @@
             font-size: 0.9rem;
             color: #FFD54F;
         }
+
         .ai-warning strong {
             color: #FFC107;
         }
+
         .partner-logo {
             font-size: 4rem;
             color: white;
             opacity: 0.7;
             transition: opacity 0.3s ease;
         }
+
         .partner-logo:hover {
             opacity: 1;
         }
+
+        #cookie-consent-banner.hidden {
+            display: none;
+        }
+
+        #cookie-consent-banner {
+            animation: slide-up 0.5s ease-out forwards;
+        }
+
+        @keyframes slide-up {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
+
 <body class="antialiased">
 
     <canvas id="particle-canvas"></canvas>
@@ -157,12 +218,18 @@
                 </div>
             </a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#philosophy" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navPhilosophy"></a>
-                <a href="#services" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navServices"></a>
-                <a href="#partners" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navPartners"></a>
-                <a href="#process" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navProcess"></a>
-                <a href="#ai-strategy" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navAiStrategy"></a>
-                <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-md" data-lang-key="navContact"></a>
+                <a href="#philosophy" class="text-gray-300 hover:text-white transition-colors text-md"
+                    data-lang-key="navPhilosophy"></a>
+                <a href="#services" class="text-gray-300 hover:text-white transition-colors text-md"
+                    data-lang-key="navServices"></a>
+                <a href="#partners" class="text-gray-300 hover:text-white transition-colors text-md"
+                    data-lang-key="navPartners"></a>
+                <a href="#process" class="text-gray-300 hover:text-white transition-colors text-md"
+                    data-lang-key="navProcess"></a>
+                <a href="#ai-strategy" class="text-gray-300 hover:text-white transition-colors text-md"
+                    data-lang-key="navAiStrategy"></a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition-colors text-md"
+                    data-lang-key="navContact"></a>
                 <div class="lang-switcher flex items-center space-x-2 text-gray-400">
                     <button id="lang-id" class="lang-active">ID</button>
                     <span>|</span>
@@ -171,19 +238,35 @@
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
                 </button>
             </div>
         </nav>
         <div class="hidden md:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#philosophy" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navPhilosophy"></a>
-                <a href="#services" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navServices"></a>
-                <a href="#partners" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navPartners"></a>
-                <a href="#process" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navProcess"></a>
-                <a href="#ai-strategy" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navAiStrategy"></a>
-                <a href="#contact" class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium" data-lang-key="navContact"></a>
-                 <div class="lang-switcher flex items-center space-x-4 text-gray-400 px-3 pt-4">
+                <a href="#philosophy"
+                    class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    data-lang-key="navPhilosophy"></a>
+                <a href="#services"
+                    class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    data-lang-key="navServices"></a>
+                <a href="#partners"
+                    class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    data-lang-key="navPartners"></a>
+                <a href="#process"
+                    class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    data-lang-key="navProcess"></a>
+                <a href="#ai-strategy"
+                    class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    data-lang-key="navAiStrategy"></a>
+                <a href="#contact"
+                    class="text-gray-300 hover:bg-gray-800/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    data-lang-key="navContact"></a>
+                <div class="lang-switcher flex items-center space-x-4 text-gray-400 px-3 pt-4">
                     <button id="lang-id-mobile" class="lang-active">Indonesia</button>
                     <span class="text-gray-600">|</span>
                     <button id="lang-en-mobile">English</button>
@@ -197,11 +280,18 @@
         <section id="hero" class="min-h-screen flex items-center justify-center relative pt-20">
             <div class="container mx-auto px-6 text-center">
                 <div class="max-w-4xl mx-auto">
-                    <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6 tracking-tight" data-lang-key="heroTitle"></h1>
-                    <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10" data-lang-key="heroSubtitle"></p>
-                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#contact" class="btn-primary font-semibold py-3 px-8 rounded-full text-lg w-full sm:w-auto" data-lang-key="heroBtnPrimary"></a>
-                         <a href="#services" class="btn-secondary font-semibold py-3 px-8 rounded-full text-lg w-full sm:w-auto" data-lang-key="heroBtnSecondary"></a>
+                    <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6 tracking-tight"
+                        data-lang-key="heroTitle"></h1>
+                    <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10" data-lang-key="heroSubtitle">
+                    </p>
+                    <div
+                        class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact"
+                            class="btn-primary font-semibold py-3 px-8 rounded-full text-lg w-full sm:w-auto"
+                            data-lang-key="heroBtnPrimary"></a>
+                        <a href="#services"
+                            class="btn-secondary font-semibold py-3 px-8 rounded-full text-lg w-full sm:w-auto"
+                            data-lang-key="heroBtnSecondary"></a>
                     </div>
                 </div>
             </div>
@@ -210,14 +300,15 @@
         <!-- Philosophy Section -->
         <section id="philosophy" class="py-24 md:py-36 fade-in-section">
             <div class="container mx-auto px-6">
-                 <div class="text-center max-w-4xl mx-auto">
-                    <h2 class="text-sm font-semibold uppercase text-blue-500 tracking-widest" data-lang-key="philosophyTag"></h2>
+                <div class="text-center max-w-4xl mx-auto">
+                    <h2 class="text-sm font-semibold uppercase text-blue-500 tracking-widest"
+                        data-lang-key="philosophyTag"></h2>
                     <p class="text-4xl md:text-5xl font-bold text-white mt-4" data-lang-key="philosophyTitle"></p>
                     <p class="text-lg text-gray-400 mt-6 max-w-3xl mx-auto" data-lang-key="philosophyBody"></p>
                 </div>
             </div>
         </section>
-        
+
         <!-- Services Section -->
         <section id="services" class="py-24 md:py-36 bg-black/20 fade-in-section">
             <div class="container mx-auto px-6">
@@ -266,19 +357,23 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-12 items-center max-w-5xl mx-auto">
                     <!-- Telkomsel -->
                     <div class="flex justify-center">
-                        <img src="public/images/mytelkomsel-logo.png" alt="mytelkomsel-logo" class="max-w-[200px] max-h-20 w-auto h-auto">
+                        <img src="public/images/mytelkomsel-logo.png" alt="mytelkomsel-logo"
+                            class="max-w-[200px] max-h-20 w-auto h-auto">
                     </div>
                     <!-- Smartfren -->
                     <div class="flex justify-center">
-                        <img src="public/images/smartferen-logo.png" alt="smartfren-logo" class="max-w-[200px] max-h-20 w-auto h-auto">
+                        <img src="public/images/smartferen-logo.png" alt="smartfren-logo"
+                            class="max-w-[200px] max-h-20 w-auto h-auto">
                     </div>
                     <!-- XL -->
                     <div class="flex justify-center">
-                        <img src="public/images/xl-logo.webp" alt="xl-logo" class="max-w-[200px] max-h-20 w-auto h-auto">
+                        <img src="public/images/xl-logo.webp" alt="xl-logo"
+                            class="max-w-[200px] max-h-20 w-auto h-auto">
                     </div>
                     <!-- Tri -->
                     <div class="flex justify-center">
-                        <img src="public/images/tri-logo.webp" alt="tri-logo" class="max-w-[200px] max-h-20 w-auto h-auto">
+                        <img src="public/images/tri-logo.webp" alt="tri-logo"
+                            class="max-w-[200px] max-h-20 w-auto h-auto">
                     </div>
                 </div>
             </div>
@@ -293,20 +388,32 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center relative max-w-6xl mx-auto">
                     <div class="flex flex-col items-center">
-                        <div class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">1</div>
-                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step1Title"></h3><p class="text-gray-400" data-lang-key="step1Body"></p>
+                        <div
+                            class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">
+                            1</div>
+                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step1Title"></h3>
+                        <p class="text-gray-400" data-lang-key="step1Body"></p>
                     </div>
                     <div class="flex flex-col items-center">
-                         <div class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">2</div>
-                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step2Title"></h3><p class="text-gray-400" data-lang-key="step2Body"></p>
+                        <div
+                            class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">
+                            2</div>
+                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step2Title"></h3>
+                        <p class="text-gray-400" data-lang-key="step2Body"></p>
                     </div>
                     <div class="flex flex-col items-center">
-                         <div class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">3</div>
-                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step3Title"></h3><p class="text-gray-400" data-lang-key="step3Body"></p>
+                        <div
+                            class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">
+                            3</div>
+                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step3Title"></h3>
+                        <p class="text-gray-400" data-lang-key="step3Body"></p>
                     </div>
                     <div class="flex flex-col items-center">
-                         <div class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">4</div>
-                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step4Title"></h3><p class="text-gray-400" data-lang-key="step4Body"></p>
+                        <div
+                            class="w-20 h-20 rounded-full bg-gray-800/50 border-2 border-blue-500 flex items-center justify-center text-blue-500 text-3xl font-bold mb-4">
+                            4</div>
+                        <h3 class="text-xl font-semibold text-white mb-2" data-lang-key="step4Title"></h3>
+                        <p class="text-gray-400" data-lang-key="step4Body"></p>
                     </div>
                 </div>
             </div>
@@ -322,24 +429,31 @@
                 <div class="glass-card rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
                     <div class="space-y-6">
                         <div>
-                            <label for="business-goal" class="block text-md font-medium text-gray-300 mb-2" data-lang-key="aiInputLabel"></label>
-                            <input type="text" id="business-goal" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" data-lang-key="aiInputPlaceholder">
+                            <label for="business-goal" class="block text-md font-medium text-gray-300 mb-2"
+                                data-lang-key="aiInputLabel"></label>
+                            <input type="text" id="business-goal"
+                                class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                data-lang-key="aiInputPlaceholder">
                         </div>
-                        <button id="generate-strategy-btn" class="btn-primary font-semibold py-3 px-8 rounded-full text-lg w-full" data-lang-key="aiBtn"></button>
+                        <button id="generate-strategy-btn"
+                            class="btn-primary font-semibold py-3 px-8 rounded-full text-lg w-full"
+                            data-lang-key="aiBtn"></button>
                     </div>
                     <div id="strategy-output" class="mt-8 ai-response-container text-gray-300"></div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Contact / CTA Section -->
         <section id="contact" class="py-24 md:py-40 fade-in-section">
             <div class="container mx-auto px-6 text-center">
-                 <div class="glass-card rounded-3xl p-8 md:p-16 max-w-4xl mx-auto">
-                     <h2 class="text-4xl md:text-5xl font-bold text-white" data-lang-key="ctaTitle"></h2>
-                     <p class="text-lg text-gray-400 mt-6 max-w-2xl mx-auto" data-lang-key="ctaBody"></p>
-                     <a href="mailto:cs@digitalsandiinformasi.com" class="btn-primary font-semibold py-3 px-8 rounded-full text-lg inline-block mt-10" data-lang-key="ctaBtn"></a>
-                 </div>
+                <div class="glass-card rounded-3xl p-8 md:p-16 max-w-4xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white" data-lang-key="ctaTitle"></h2>
+                    <p class="text-lg text-gray-400 mt-6 max-w-2xl mx-auto" data-lang-key="ctaBody"></p>
+                    <a href="mailto:cs@digitalsandiinformasi.com"
+                        class="btn-primary font-semibold py-3 px-8 rounded-full text-lg inline-block mt-10"
+                        data-lang-key="ctaBtn"></a>
+                </div>
             </div>
         </section>
     </main>
@@ -361,23 +475,29 @@
                 <div>
                     <h3 class="text-lg font-semibold text-white" data-lang-key="footerNav"></h3>
                     <ul class="mt-4 space-y-2">
-                        <li><a href="#philosophy" class="text-gray-400 hover:text-white" data-lang-key="navPhilosophy"></a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white" data-lang-key="navServices"></a></li>
-                        <li><a href="#partners" class="text-gray-400 hover:text-white" data-lang-key="navPartners"></a></li>
-                        <li><a href="#process" class="text-gray-400 hover:text-white" data-lang-key="navProcess"></a></li>
+                        <li><a href="#philosophy" class="text-gray-400 hover:text-white"
+                                data-lang-key="navPhilosophy"></a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white" data-lang-key="navServices"></a>
+                        </li>
+                        <li><a href="#partners" class="text-gray-400 hover:text-white" data-lang-key="navPartners"></a>
+                        </li>
+                        <li><a href="#process" class="text-gray-400 hover:text-white" data-lang-key="navProcess"></a>
+                        </li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold text-white" data-lang-key="footerContact"></h3>
-                     <address class="mt-4 space-y-2 not-italic text-gray-400">
+                    <address class="mt-4 space-y-2 not-italic text-gray-400">
                         <p data-lang-key="footerAddress"></p>
-                        <p><span data-lang-key="footerPhone"></span> <a href="tel:+622157953431" class="hover:text-white">(+62) 21 5795 3431</a></p>
-                        <p>E-mail: <a href="mailto:cs@digitalsandiinformasi.com" class="hover:text-white">cs@digitalsandiinformasi.com</a></p>
+                        <p><span data-lang-key="footerPhone"></span> <a href="tel:+622157953431"
+                                class="hover:text-white">(+62) 21 5795 3431</a></p>
+                        <p>E-mail: <a href="mailto:cs@digitalsandiinformasi.com"
+                                class="hover:text-white">cs@digitalsandiinformasi.com</a></p>
                     </address>
                 </div>
-                 <div>
+                <div>
                     <h3 class="text-lg font-semibold text-white" data-lang-key="footerConnect"></h3>
-                     <ul class="mt-4 space-y-2">
+                    <ul class="mt-4 space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white">LinkedIn</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white">Twitter</a></li>
                     </ul>
@@ -390,287 +510,258 @@
         </div>
     </footer>
 
-    <script>
-        // --- Translations Object ---
-        const translations = {
-            id: {
-                metaDescription: "PT Digital Sandi Informasi (DSI) adalah pengembang aplikasi telco dan penyedia konten terkemuka di Indonesia. Kami menawarkan solusi aplikasi multikanal (SMS, UMB), integrasi operator, dan layanan call center 112 yang andal.",
-                // Nav
-                navPhilosophy: "Filosofi",
-                navServices: "Layanan Kami",
-                navPartners: "Mitra Kami",
-                navProcess: "Proses",
-                navAiStrategy: "Perencana Strategi",
-                navContact: "Kontak",
-                // Hero
-                heroTitle: "Menghubungkan Peluang Digital Anda.",
-                heroSubtitle: "Kami mengembangkan aplikasi dan layanan telco yang inovatif, menghubungkan bisnis Anda dengan jutaan pelanggan di seluruh Indonesia.",
-                heroBtnPrimary: "Minta Konsultasi",
-                heroBtnSecondary: "Lihat Layanan Kami",
-                // Philosophy
-                philosophyTag: "Filosofi Kami",
-                philosophyTitle: "Lebih dari Sekadar Koneksi, Kami Menciptakan Keterlibatan.",
-                philosophyBody: "Di DSI, kami tidak hanya membangun aplikasi; kami merancang jembatan digital yang kokoh dan cerdas antara bisnis dan pelanggan mereka, memastikan setiap interaksi bermakna dan berdampak.",
-                // Services
-                servicesTitle: "Layanan Inti Kami",
-                servicesSubtitle: "Kami Mengembangkan Aplikasi Untuk Menghubungkan Antara Operator Sebagai Penyedia Konten & Klien Sebagai Penyedia Konten.",
-                service1Title: "Aplikasi Multikanal",
-                service1Body: "Kami mendukung penyediaan semua saluran untuk konten, termasuk SMS, UMB, STK, WAP/WEB, dan TELCO STORE CONTENT.",
-                service2Title: "Pengembangan Telco",
-                service2Body: "Aplikasi kami dapat dan telah terbukti terintegrasi dengan semua operator di Indonesia, mendukung program koneksi dan program eksklusif dengan telco.",
-                service3Title: "Layanan Call Center 112",
-                service3Body: "Menyediakan dan mengelola infrastruktur Call Center 112 yang andal untuk layanan darurat di berbagai kota dan kabupaten di Indonesia.",
-                 // Partners
-                partnersTitle: "Mitra Terpercaya Kami",
-                partnersSubtitle: "Kami bangga dapat bekerja sama dengan para pemimpin industri telekomunikasi di Indonesia.",
-                // Process
-                processTitle: "Proses Strategis Kami",
-                processSubtitle: "Metodologi yang terbukti untuk memberikan kepastian dan hasil.",
-                step1Title: "Analisis Kebutuhan",
-                step1Body: "Kami mulai dengan penelaahan mendalam terhadap tujuan bisnis, target audiens, dan tantangan teknis Anda.",
-                step2Title: "Desain Solusi",
-                step2Body: "Tim kami merancang solusi aplikasi atau layanan yang terukur dan efisien, disesuaikan dengan ekosistem telco Indonesia.",
-                step3Title: "Implementasi & Integrasi",
-                step3Body: "Kami menerapkan solusi dengan presisi, melakukan integrasi tanpa celah dengan sistem operator dan klien.",
-                step4Title: "Dukungan & Optimalisasi",
-                step4Body: "Kami menyediakan dukungan berkelanjutan dan optimalisasi layanan untuk memastikan kinerja dan jangkauan maksimum.",
-                // AI Strategy
-                aiTitle: "Perencana Strategi Telco",
-                aiSubtitle: "Jelaskan tujuan bisnis Anda dan dapatkan draf strategi keterlibatan multikanal yang cerdas dan efektif.",
-                aiInputLabel: "Apa tujuan bisnis atau kampanye Anda?",
-                aiInputPlaceholder: "contoh: Promosikan bisnis Anda dengan penawaran telekomunikasi melalui SMS...",
-                aiBtn: "✨ Buat Draf Strategi",
-                aiErrorMinChars: "Mohon jelaskan tujuan Anda dengan lebih detail (minimal 40 karakter).",
-                aiWarning: "<strong>Peringatan:</strong> Konten ini dibuat oleh AI sebagai draf awal dan mungkin memerlukan penyesuaian. Harap verifikasi semua informasi dan strategi sebelum implementasi.",
-                // CTA
-                ctaTitle: "Siap Terhubung dengan Audiens Anda?",
-                ctaBody: "Mari bangun jembatan digital yang lebih kuat antara bisnis Anda dan pelanggan. Hubungi pakar kami hari ini untuk konsultasi gratis.",
-                ctaBtn: "Hubungi Kami",
-                // Footer
-                footerTagline: "Menghubungkan Peluang Digital Anda.",
-                footerNav: "Navigasi",
-                footerContact: "Hubungi Kami",
-                footerAddress: "Kantor Taman A9, Unit C7 Lt. 3, Jl. DR Ide Anak Agung Gde Agung, Mega Kuningan, Jakarta Selatan, Indonesia",
-                footerPhone: "Telepon:",
-                footerConnect: "Terhubung",
-                footerSubtext: "Menciptakan solusi telco dan layanan pelanggan yang andal di Jakarta, Indonesia."
-            },
-            en: {
-                metaDescription: "PT Digital Sandi Informasi (DSI) is a leading telco application developer and content provider in Indonesia. We offer multichannel application solutions (SMS, UMB), operator integration, and reliable 112 call center services.",
-                // Nav
-                navPhilosophy: "Philosophy",
-                navServices: "Our Services",
-                navPartners: "Our Partners",
-                navProcess: "Process",
-                navAiStrategy: "Strategy Planner",
-                navContact: "Contact",
-                // Hero
-                heroTitle: "Connecting Your Digital Opportunities.",
-                heroSubtitle: "We develop innovative telco applications and services, connecting your business with millions of customers across Indonesia.",
-                heroBtnPrimary: "Request a Consultation",
-                heroBtnSecondary: "View Our Services",
-                // Philosophy
-                philosophyTag: "Our Philosophy",
-                philosophyTitle: "Beyond Connection, We Create Engagement.",
-                philosophyBody: "At DSI, we don't just build applications; we engineer robust and intelligent digital bridges between businesses and their customers, ensuring every interaction is meaningful and impactful.",
-                // Services
-                servicesTitle: "Our Core Services",
-                servicesSubtitle: "We Develop Applications To Connect Between The Operator As A Content Provider & The Client As A Content Provider.",
-                service1Title: "Multichannel Application",
-                service1Body: "We support providing all channels for content, including SMS, UMB, STK, WAP/WEB, and TELCO STORE CONTENT.",
-                service2Title: "Telco Development",
-                service2Body: "Our applications can be and have been shown to integrate with all operators in Indonesia, supporting telco connections and exclusive programs.",
-                service3Title: "112 Call Center Service",
-                service3Body: "Providing and managing reliable 112 Call Center infrastructure for emergency services in various cities and districts in Indonesia.",
-                // Partners
-                partnersTitle: "Our Trusted Partners",
-                partnersSubtitle: "We are proud to collaborate with the leaders of the telecommunications industry in Indonesia.",
-                // Process
-                processTitle: "Our Strategic Process",
-                processSubtitle: "A proven methodology for delivering certainty and results.",
-                step1Title: "Needs Analysis",
-                step1Body: "We begin with a deep dive into your business goals, target audience, and technical challenges.",
-                step2Title: "Solution Design",
-                step2Body: "Our team designs a scalable and efficient application or service solution, tailored to the Indonesian telco ecosystem.",
-                step3Title: "Implementation & Integration",
-                step3Body: "We deploy the solution with precision, performing seamless integration with operator and client systems.",
-                step4Title: "Support & Optimization",
-                step4Body: "We provide ongoing support and service optimization to ensure maximum performance and reach.",
-                // AI Strategy
-                aiTitle: "Telco Strategy Planner",
-                aiSubtitle: "Describe your business goals and get a smart and effective draft of a multichannel engagement strategy.",
-                aiInputLabel: "What is your business or campaign goal?",
-                aiInputPlaceholder: "e.g., Promote your business with telecom offers via SMS...",
-                aiBtn: "✨ Draft Strategy",
-                aiErrorMinChars: "Please describe your goal in more detail (minimum 40 characters).",
-                aiWarning: "<strong>Disclaimer:</strong> This content is AI-generated as an initial draft and may require adjustment. Please verify all information and strategies before implementation.",
-                // CTA
-                ctaTitle: "Ready to Connect with Your Audience?",
-                ctaBody: "Let's build a stronger digital bridge between your business and your customers. Contact our experts today for a complimentary consultation.",
-                ctaBtn: "Get In Touch",
-                // Footer
-                footerTagline: "Connecting Your Digital Opportunities.",
-                footerNav: "Navigate",
-                footerContact: "Contact Us",
-                footerAddress: "Kantor Taman A9, Unit C7 Fl. 3, Jl. DR Ide Anak Agung Gde Agung, Mega Kuningan, South Jakarta, Indonesia",
-                footerPhone: "Phone:",
-                footerConnect: "Connect",
-                footerSubtext: "Crafting reliable telco and customer service solutions in Jakarta, Indonesia."
-            }
-        };
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent-banner" class="fixed bottom-0 inset-x-0 pb-4 sm:pb-6 z-50 hidden">
+        <div class="container mx-auto px-6">
+            <div class="glass-card rounded-2xl p-6 sm:flex sm:items-center sm:justify-between">
+                <p class="text-sm text-gray-300 mb-4 sm:mb-0 sm:mr-6" data-lang-key="cookieText">
+                </p>
+                <div class="flex-shrink-0 flex flex-col sm:flex-row items-center gap-3">
+                    <button id="cookie-accept-btn"
+                        class="btn-primary font-semibold py-2 px-6 rounded-full w-full sm:w-auto flex items-center justify-center">
+                        <span data-lang-key="cookieAccept"></span>
+                        <span id="accept-timer" class="ml-2 font-normal"></span>
+                    </button>
+                    <button id="cookie-decline-btn"
+                        class="btn-secondary font-semibold py-2 px-6 rounded-full w-full sm:w-auto"
+                        data-lang-key="cookieDecline"></button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        // --- Language Switcher Logic ---
-        const langIdBtn = document.getElementById('lang-id');
-        const langEnBtn = document.getElementById('lang-en');
-        const langIdMobileBtn = document.getElementById('lang-id-mobile');
-        const langEnMobileBtn = document.getElementById('lang-en-mobile');
-        const metaDescriptionTag = document.querySelector('meta[name="description"]');
+</body>
 
-        const changeLanguage = (lang) => {
-            document.documentElement.lang = lang;
-            document.title = lang === 'id' ? 'PT Digital Sandi Informasi - Merancang Masa Depan Digital Anda' : 'PT Digital Sandi Informasi - Architecting Your Digital Future';
-            
-            window.location.hash = lang;
-            metaDescriptionTag.setAttribute('content', translations[lang]['metaDescription']);
+<script>
+    const langIdBtn = document.getElementById('lang-id');
+    const langEnBtn = document.getElementById('lang-en');
+    const langIdMobileBtn = document.getElementById('lang-id-mobile');
+    const langEnMobileBtn = document.getElementById('lang-en-mobile');
+    const metaDescriptionTag = document.querySelector('meta[name="description"]');
 
-            document.querySelectorAll('[data-lang-key]').forEach(el => {
-                const key = el.getAttribute('data-lang-key');
-                if(translations[lang][key]) {
-                     if(el.tagName === 'INPUT' && el.placeholder !== undefined) {
-                        el.placeholder = translations[lang][key];
-                    } else {
-                        el.innerHTML = translations[lang][key];
-                    }
-                }
-            });
+    // This object will hold the currently loaded language data
+    let currentTranslations = {};
 
-            if (lang === 'id') {
-                langIdBtn.classList.add('lang-active');
-                langEnBtn.classList.remove('lang-active');
-                langIdMobileBtn.classList.add('lang-active');
-                langEnMobileBtn.classList.remove('lang-active');
-            } else {
-                langEnBtn.classList.add('lang-active');
-                langIdBtn.classList.remove('lang-active');
-                langEnMobileBtn.classList.add('lang-active');
-                langIdMobileBtn.classList.remove('lang-active');
-            }
-        };
-        
-        langIdBtn.addEventListener('click', () => changeLanguage('id'));
-        langEnBtn.addEventListener('click', () => changeLanguage('en'));
-        langIdMobileBtn.addEventListener('click', () => changeLanguage('id'));
-        langEnMobileBtn.addEventListener('click', () => changeLanguage('en'));
-        
-        // --- Mobile Menu Toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // --- Fade-in on Scroll Animation ---
-        const sections = document.querySelectorAll('.fade-in-section');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        sections.forEach(section => observer.observe(section));
-
-        // --- Particle BG ---
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        let particlesArray;
-
-        let mouse = { x: null, y: null, radius: (canvas.height / 120) * (canvas.width / 120) };
-        window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
-
-        class Particle {
-            constructor(x, y, directionX, directionY, size, color) { this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY; this.size = size; this.color = color; }
-            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false); ctx.fillStyle = 'rgba(41, 151, 255, 0.5)'; ctx.fill(); }
-            update() { if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX; if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY; let dx = mouse.x - this.x; let dy = mouse.y - this.y; let distance = Math.sqrt(dx * dx + dy * dy); if (distance < mouse.radius + this.size) { if (mouse.x < this.x && this.x < canvas.width - this.size * 10) this.x += 5; if (mouse.x > this.x && this.x > this.size * 10) this.x -= 5; if (mouse.y < this.y && this.y < canvas.height - this.size * 10) this.y += 5; if (mouse.y > this.y && this.y > this.size * 10) this.y -= 5; } this.x += this.directionX; this.y += this.directionY; this.draw(); }
-        }
-
-        function init() { particlesArray = []; let numberOfParticles = (canvas.height * canvas.width) / 9000; for (let i = 0; i < numberOfParticles; i++) { let size = (Math.random() * 2) + 1; let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2); let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2); let directionX = (Math.random() * 0.4) - 0.2; let directionY = (Math.random() * 0.4) - 0.2; let color = '#2997FF'; particlesArray.push(new Particle(x, y, directionX, directionY, size, color)); } }
-        function connect() { let opacityValue = 1; for (let a = 0; a < particlesArray.length; a++) { for (let b = a; b < particlesArray.length; b++) { let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y)); if (distance < (canvas.width / 7) * (canvas.height / 7)) { opacityValue = 1 - (distance / 20000); ctx.strokeStyle = `rgba(41, 151, 255, ${opacityValue})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particlesArray[a].x, particlesArray[a].y); ctx.lineTo(particlesArray[b].x, particlesArray[b].y); ctx.stroke(); } } } }
-        function animate() { requestAnimationFrame(animate); ctx.clearRect(0, 0, innerWidth, innerHeight); for (let i = 0; i < particlesArray.length; i++) { particlesArray[i].update(); } connect(); }
-
-        window.addEventListener('resize', () => { canvas.width = innerWidth; canvas.height = innerHeight; mouse.radius = (canvas.height / 120) * (canvas.width / 120); init(); });
-        window.addEventListener('mouseout', () => { mouse.x = undefined; mouse.y = undefined; });
-        init();
-        animate();
-        
-        // --- Nav Active on Scroll ---
-        const navLinks = document.querySelectorAll('header a[href^="#"]');
-        const scrollSections = document.querySelectorAll('main section[id]');
-        const activateNavOnScroll = () => { let current = 'hero'; scrollSections.forEach(section => { const sectionTop = section.offsetTop - 150; if (scrollY >= sectionTop) { current = section.getAttribute('id'); } }); navLinks.forEach(link => { link.classList.remove('nav-active'); if (link.getAttribute('href').includes(current)) { link.classList.add('nav-active'); } }); };
-        window.addEventListener('scroll', activateNavOnScroll);
-        
-        // --- AI Strategy Planner Feature (Gemini) ---
-        const generateBtn = document.getElementById('generate-strategy-btn');
-        const businessInput = document.getElementById('business-goal');
-        const strategyOutput = document.getElementById('strategy-output');
-        generateBtn.addEventListener('click', async () => {
-            const currentLang = document.documentElement.lang || 'id';
-            const businessGoal = businessInput.value.trim();
-
-            if (businessGoal.length < 40) {
-                strategyOutput.innerHTML = `<p class="text-red-400">${translations[currentLang]['aiErrorMinChars']}</p>`;
+    const changeLanguage = async (lang) => {
+        // --- NEW: Fetch the language file ---
+        try {
+            const response = await fetch(`./lang/${lang}.json`);
+            if (!response.ok) {
+                console.error(`Could not load language file: ${lang}.json`);
                 return;
             }
+            currentTranslations = await response.json();
+        } catch (error) {
+            console.error('Error fetching language file:', error);
+            return;
+        }
 
-            generateBtn.disabled = true;
-            generateBtn.innerHTML = '<div class="loader mx-auto"></div>';
-            strategyOutput.innerHTML = '';
-            
-            const apiUrl = 'https://dsi-api-proxy.muhammadmaududy4.workers.dev/'; 
-            
-            const systemPrompt = "You are an expert consultant in Indonesian telecommunications and mobile marketing. Your client is PT Digital Sandi Informasi (DSI), a company specializing in multichannel applications (SMS, UMB, STK, WAP/WEB), Telco integration, and Call Center services, including managing the 112 emergency call center in several Indonesian cities. Based on the user's business goal, your task is to generate a concise, high-level multichannel engagement strategy proposal. The proposal should leverage DSI's core services. The output should be in clear markdown, suggesting 2-3 strategic channels and briefly explaining why each is suitable for the user's goal in the Indonesian market.";
-            const userQuery = `Generate a high-level multichannel engagement strategy proposal for the following business goal: '${businessGoal}'. Suggest specific channels like SMS Blasting, UMB (USSD) menus, or other relevant telco services, and explain the benefits for each in the context of the Indonesian market.`;
-            
-            const payload = { systemInstruction: { parts: [{ text: systemPrompt }] }, contents: [{ parts: [{ text: userQuery }] }], tools: [{ "google_search": {} }], };
-            
-            try {
-                const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                if (!response.ok) throw new Error(`API error: ${response.statusText}`);
-                const result = await response.json();
-                const geminiResponse = result.candidates?.[0]?.content?.parts?.[0]?.text;
-                
-                if (geminiResponse) {
-                    const warningDiv = document.createElement('div');
-                    warningDiv.className = 'ai-warning';
-                    warningDiv.innerHTML = translations[currentLang]['aiWarning'];
-                    strategyOutput.appendChild(warningDiv);
+        document.documentElement.lang = lang;
+        document.title = lang === 'id' ? 'PT Digital Sandi Informasi - Merancang Masa Depan Digital Anda' : 'PT Digital Sandi Informasi - Architecting Your Digital Future';
 
-                    const responseDiv = document.createElement('div');
-                    responseDiv.innerHTML = marked.parse(geminiResponse);
-                    strategyOutput.appendChild(responseDiv);
+        window.location.hash = lang;
+        metaDescriptionTag.setAttribute('content', currentTranslations['metaDescription']);
 
+        document.querySelectorAll('[data-lang-key]').forEach(el => {
+            const key = el.getAttribute('data-lang-key');
+            // --- UPDATED: Use the new `currentTranslations` object ---
+            if (currentTranslations[key]) {
+                if (el.tagName === 'INPUT' && el.placeholder !== undefined) {
+                    el.placeholder = currentTranslations[key];
                 } else {
-                    console.error("Invalid response structure from API:", result);
-                    throw new Error("Received an invalid response from the API.");
+                    el.innerHTML = currentTranslations[key];
                 }
-            } catch (error) {
-                console.error("Error generating strategy:", error);
-                strategyOutput.innerHTML = `<p class="text-red-400">Sorry, we couldn't generate the strategy at this time. Please try again later.</p>`;
-            } finally {
-                generateBtn.disabled = false;
-                generateBtn.innerHTML = translations[currentLang]['aiBtn'];
             }
         });
-        
-        // --- Initial Load ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const initialLang = window.location.hash.replace('#', '') || 'id';
-            changeLanguage(['id', 'en'].includes(initialLang) ? initialLang : 'id');
-            activateNavOnScroll();
-        });
-    </script>
-</body>
-</html>
 
+        if (lang === 'id') {
+            langIdBtn.classList.add('lang-active');
+            langEnBtn.classList.remove('lang-active');
+            langIdMobileBtn.classList.add('lang-active');
+            langEnMobileBtn.classList.remove('lang-active');
+        } else {
+            langEnBtn.classList.add('lang-active');
+            langIdBtn.classList.remove('lang-active');
+            langEnMobileBtn.classList.add('lang-active');
+            langIdMobileBtn.classList.remove('lang-active');
+        }
+    };
+
+    langIdBtn.addEventListener('click', () => changeLanguage('id'));
+    langEnBtn.addEventListener('click', () => changeLanguage('en'));
+    langIdMobileBtn.addEventListener('click', () => changeLanguage('id'));
+    langEnMobileBtn.addEventListener('click', () => changeLanguage('en'));
+
+    // --- Mobile Menu Toggle ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // --- Fade-in on Scroll Animation ---
+    const sections = document.querySelectorAll('.fade-in-section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+
+    // --- Particle BG ---
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let particlesArray;
+
+    let mouse = { x: null, y: null, radius: (canvas.height / 120) * (canvas.width / 120) };
+    window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
+
+    class Particle {
+        constructor(x, y, directionX, directionY, size, color) { this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY; this.size = size; this.color = color; }
+        draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false); ctx.fillStyle = 'rgba(41, 151, 255, 0.5)'; ctx.fill(); }
+        update() { if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX; if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY; let dx = mouse.x - this.x; let dy = mouse.y - this.y; let distance = Math.sqrt(dx * dx + dy * dy); if (distance < mouse.radius + this.size) { if (mouse.x < this.x && this.x < canvas.width - this.size * 10) this.x += 5; if (mouse.x > this.x && this.x > this.size * 10) this.x -= 5; if (mouse.y < this.y && this.y < canvas.height - this.size * 10) this.y += 5; if (mouse.y > this.y && this.y > this.size * 10) this.y -= 5; } this.x += this.directionX; this.y += this.directionY; this.draw(); }
+    }
+
+    function init() { particlesArray = []; let numberOfParticles = (canvas.height * canvas.width) / 9000; for (let i = 0; i < numberOfParticles; i++) { let size = (Math.random() * 2) + 1; let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2); let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2); let directionX = (Math.random() * 0.4) - 0.2; let directionY = (Math.random() * 0.4) - 0.2; let color = '#2997FF'; particlesArray.push(new Particle(x, y, directionX, directionY, size, color)); } }
+    function connect() { let opacityValue = 1; for (let a = 0; a < particlesArray.length; a++) { for (let b = a; b < particlesArray.length; b++) { let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y)); if (distance < (canvas.width / 7) * (canvas.height / 7)) { opacityValue = 1 - (distance / 20000); ctx.strokeStyle = `rgba(41, 151, 255, ${opacityValue})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particlesArray[a].x, particlesArray[a].y); ctx.lineTo(particlesArray[b].x, particlesArray[b].y); ctx.stroke(); } } } }
+    function animate() { requestAnimationFrame(animate); ctx.clearRect(0, 0, innerWidth, innerHeight); for (let i = 0; i < particlesArray.length; i++) { particlesArray[i].update(); } connect(); }
+
+    window.addEventListener('resize', () => { canvas.width = innerWidth; canvas.height = innerHeight; mouse.radius = (canvas.height / 120) * (canvas.width / 120); init(); });
+    window.addEventListener('mouseout', () => { mouse.x = undefined; mouse.y = undefined; });
+    init();
+    animate();
+
+    // --- Nav Active on Scroll ---
+    const navLinks = document.querySelectorAll('header a[href^="#"]');
+    const scrollSections = document.querySelectorAll('main section[id]');
+    const activateNavOnScroll = () => { let current = 'hero'; scrollSections.forEach(section => { const sectionTop = section.offsetTop - 150; if (scrollY >= sectionTop) { current = section.getAttribute('id'); } }); navLinks.forEach(link => { link.classList.remove('nav-active'); if (link.getAttribute('href').includes(current)) { link.classList.add('nav-active'); } }); };
+    window.addEventListener('scroll', activateNavOnScroll);
+
+    // --- AI Strategy Planner Feature (Gemini) ---
+    const generateBtn = document.getElementById('generate-strategy-btn');
+    const businessInput = document.getElementById('business-goal');
+    const strategyOutput = document.getElementById('strategy-output');
+    generateBtn.addEventListener('click', async () => {
+        const businessGoal = businessInput.value.trim();
+
+        if (businessGoal.length < 40) {
+            strategyOutput.innerHTML = `<p class="text-red-400">${currentTranslations['aiErrorMinChars']}</p>`;
+            return;
+        }
+
+        generateBtn.disabled = true;
+        generateBtn.innerHTML = '<div class="loader mx-auto"></div>';
+        strategyOutput.innerHTML = '';
+
+        const apiUrl = 'https://dsi-api-proxy.muhammadmaududy4.workers.dev/';
+
+        const systemPrompt = "You are an expert consultant in Indonesian telecommunications and mobile marketing. Your client is PT Digital Sandi Informasi (DSI), a company specializing in multichannel applications (SMS, UMB, STK, WAP/WEB), Telco integration, and Call Center services, including managing the 112 emergency call center in several Indonesian cities. Based on the user's business goal, your task is to generate a concise, high-level multichannel engagement strategy proposal. The proposal should leverage DSI's core services. The output should be in clear markdown, suggesting 2-3 strategic channels and briefly explaining why each is suitable for the user's goal in the Indonesian market.";
+        const userQuery = `Generate a high-level multichannel engagement strategy proposal for the following business goal: '${businessGoal}'. Suggest specific channels like SMS Blasting, UMB (USSD) menus, or other relevant telco services, and explain the benefits for each in the context of the Indonesian market.`;
+
+        const payload = { systemInstruction: { parts: [{ text: systemPrompt }] }, contents: [{ parts: [{ text: userQuery }] }], tools: [{ "google_search": {} }], };
+
+        try {
+            const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+            if (!response.ok) throw new Error(`API error: ${response.statusText}`);
+            const result = await response.json();
+            const geminiResponse = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+            if (geminiResponse) {
+                const warningDiv = document.createElement('div');
+                warningDiv.className = 'ai-warning';
+                // --- UPDATED: Use the `currentTranslations` object ---
+                warningDiv.innerHTML = currentTranslations['aiWarning'];
+                strategyOutput.appendChild(warningDiv);
+
+                const responseDiv = document.createElement('div');
+                responseDiv.innerHTML = marked.parse(geminiResponse);
+                strategyOutput.appendChild(responseDiv);
+
+            } else {
+                console.error("Invalid response structure from API:", result);
+                throw new Error("Received an invalid response from the API.");
+            }
+        } catch (error) {
+            console.error("Error generating strategy:", error);
+            strategyOutput.innerHTML = `<p class="text-red-400">Sorry, we couldn't generate the strategy at this time. Please try again later.</p>`;
+        } finally {
+            generateBtn.disabled = false;
+            generateBtn.innerHTML = currentTranslations['aiBtn'];
+        }
+    });
+
+    // --- Cookie Consent Logic ---
+    const consentBanner = document.getElementById('cookie-consent-banner');
+    const acceptBtn = document.getElementById('cookie-accept-btn');
+    const declineBtn = document.getElementById('cookie-decline-btn');
+    const acceptTimerSpan = document.getElementById('accept-timer');
+
+    // Variables to hold our timer IDs
+    let countdownInterval;
+    let autoAcceptTimeout;
+
+    function stopAllTimers() {
+        clearInterval(countdownInterval);
+        clearTimeout(autoAcceptTimeout);
+        if (acceptTimerSpan) {
+            acceptTimerSpan.style.display = 'none'; // Hide timer text
+        }
+    }
+
+    // This function will be called when the user makes a choice
+    function handleConsent(isAccepted) {
+        stopAllTimers();
+
+        // Save the user's choice. localStorage persists across browser sessions.
+        localStorage.setItem('cookie_consent', isAccepted ? 'granted' : 'denied');
+
+        // Hide the banner
+        consentBanner.classList.add('hidden');
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'consent_update',
+            'analytics_storage': isAccepted ? 'granted' : 'denied',
+            'ad_storage': isAccepted ? 'granted' : 'denied'
+        });
+    }
+
+    acceptBtn.addEventListener('click', () => handleConsent(true));
+    declineBtn.addEventListener('click', () => handleConsent(false));
+
+    const consentStatus = localStorage.getItem('cookie_consent');
+    if (!consentStatus) {
+        consentBanner.classList.remove('hidden');
+
+        autoAcceptTimeout = setTimeout(() => {
+            handleConsent(true);
+        }, 10000); // 10000 milliseconds = 10 seconds
+
+        let secondsLeft = 10;
+        acceptTimerSpan.textContent = `(${secondsLeft})`; 
+
+        countdownInterval = setInterval(() => {
+            secondsLeft--;
+            if (acceptTimerSpan) {
+                acceptTimerSpan.textContent = `(${secondsLeft})`;
+            }
+            if (secondsLeft <= 0) {
+                clearInterval(countdownInterval); // Stop this interval when it reaches 0
+            }
+        }, 1000); 
+    }
+
+    // --- Initial Load ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const initialLang = window.location.hash.replace('#', '') || 'id';
+        changeLanguage(['id', 'en'].includes(initialLang) ? initialLang : 'id');
+        activateNavOnScroll();
+    });
+</script>
+
+
+</html>
