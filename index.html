@@ -162,49 +162,36 @@
 
         .service-card {
             position: relative;
-            overflow: hidden;
+            transition: transform 0.3s ease;
         }
 
-        .service-card::before {
-            content: '';
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-border-svg {
             position: absolute;
             top: 0;
-            right: 0;
-            bottom: 0;
             left: 0;
-            z-index: -1;
-            margin: -2px;
-            border-radius: inherit;
-            background: conic-gradient(from 180deg at 50% 50%, #3B82F6 0%, #1E3A8A 25%, #203A43 50%, #0F2027 75%, #000000 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            pointer-events: none;
+            /* Allows clicks to go through to the card content */
         }
 
-        .dark .service-card::before {
-            background: conic-gradient(from 180deg at 50% 50%, #000000 0%, #0F2027 25%, #203A43 50%, #1E3A8A 75%, #3B82F6 100%);
+        .card-border-path {
+            stroke: #2997FF;
+            /* Border color */
+            stroke-width: 2px;
+            /* Border thickness */
+            stroke-dasharray: 2000;
+            /* A large number to cover the whole path */
+            stroke-dashoffset: 2000;
+            /* Start with the border "drawn" off-screen */
+            transition: stroke-dashoffset 0.5s ease-in-out;
         }
 
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
-        .service-card .service-content {
-            background-color: rgba(255, 255, 255, 0.6);
-            transition: background-color 0.3s ease;
-            width: 100%;
-            height: 100%;
-        }
-
-        .dark .service-card .service-content {
-            background-color: rgba(26, 26, 26, 0.5);
-        }
-
-        .service-card:hover .service-content {
-            background-color: rgba(255, 255, 255, 0.4);
-        }
-
-        .dark .service-card:hover .service-content {
-            background-color: rgba(26, 26, 26, 0.2);
+        .service-card:hover .card-border-path {
+            stroke-dashoffset: 0;
+            /* Animate the border to be fully "drawn" on hover */
         }
 
         .philosophy-line {
@@ -547,7 +534,8 @@
         <section id="hero" class="min-h-screen flex items-center justify-center relative pt-20 overflow-hidden">
             <div class="container mx-auto px-6 text-center relative z-10">
                 <div class="max-w-4xl mx-auto">
-                    <h1 class="text-5xl md:text-7xl font-bold text-black dark:text-white leading-tight mb-6 tracking-tight"
+                    <!-- This is the updated line -->
+                    <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-black dark:text-white leading-tight mb-6 tracking-tight"
                         data-lang-key="heroTitle"></h1>
                     <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10"
                         data-lang-key="heroSubtitle"></p>
@@ -594,6 +582,10 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                     <!-- Service 1 -->
                     <div class="service-card glass-card rounded-3xl z-10">
+                        <svg class="card-border-svg" width="100%" height="100%" fill="transparent"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect class="card-border-path" width="100%" height="100%" rx="24" ry="24" />
+                        </svg>
                         <div class="service-content p-8 flex flex-col items-center text-center rounded-3xl">
                             <div
                                 class="p-4 bg-gray-200/50 dark:bg-gray-800/50 rounded-xl mb-6 inline-block shadow-inner">
@@ -606,6 +598,10 @@
                     </div>
                     <!-- Service 2 -->
                     <div class="service-card glass-card rounded-3xl z-10">
+                        <svg class="card-border-svg" width="100%" height="100%" fill="transparent"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect class="card-border-path" width="100%" height="100%" rx="24" ry="24" />
+                        </svg>
                         <div class="service-content p-8 flex flex-col items-center text-center rounded-3xl">
                             <div
                                 class="p-4 bg-gray-200/50 dark:bg-gray-800/50 rounded-xl mb-6 inline-block shadow-inner">
@@ -618,6 +614,10 @@
                     </div>
                     <!-- Service 3 -->
                     <div class="service-card glass-card rounded-3xl z-10">
+                        <svg class="card-border-svg" width="100%" height="100%" fill="transparent"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect class="card-border-path" width="100%" height="100%" rx="24" ry="24" />
+                        </svg>
                         <div class="service-content p-8 flex flex-col items-center text-center rounded-3xl">
                             <div
                                 class="p-4 bg-gray-200/50 dark:bg-gray-800/50 rounded-xl mb-6 inline-block shadow-inner">
